@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		275C54D8231FADB200861B1A /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275C54D7231FADB200861B1A /* LoginView.swift */; };
+		275C54DC231FC7D000861B1A /* LoginProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275C54DB231FC7D000861B1A /* LoginProtocols.swift */; };
 		27A68E8F231E7FAC00BB579E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A68E8E231E7FAC00BB579E /* AppDelegate.swift */; };
 		27A68E91231E7FAC00BB579E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A68E90231E7FAC00BB579E /* ViewController.swift */; };
 		27A68E94231E7FAC00BB579E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27A68E92231E7FAC00BB579E /* Main.storyboard */; };
@@ -35,6 +37,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		275C54D7231FADB200861B1A /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		275C54DB231FC7D000861B1A /* LoginProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginProtocols.swift; sourceTree = "<group>"; };
 		27A68E8B231E7FAC00BB579E /* Training Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Training Project.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		27A68E8E231E7FAC00BB579E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		27A68E90231E7FAC00BB579E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -76,9 +80,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		275C54D5231FAB1600861B1A /* Router */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		275C54D6231FACC400861B1A /* Session */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Session;
+			sourceTree = "<group>";
+		};
 		27A68E82231E7FAC00BB579E = {
 			isa = PBXGroup;
 			children = (
+				275C54D6231FACC400861B1A /* Session */,
+				27E9B649231FA888008159D1 /* Entity */,
+				27E9B648231FA878008159D1 /* API Service */,
+				27E9B647231FA5E6008159D1 /* Main */,
+				27A68EBF231E82A700BB579E /* Login */,
 				27A68E8D231E7FAC00BB579E /* Training Project */,
 				27A68EA5231E7FAF00BB579E /* Training ProjectTests */,
 				27A68EB0231E7FAF00BB579E /* Training ProjectUITests */,
@@ -126,6 +149,109 @@
 				27A68EB3231E7FAF00BB579E /* Info.plist */,
 			);
 			path = "Training ProjectUITests";
+			sourceTree = "<group>";
+		};
+		27A68EBF231E82A700BB579E /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				27E9B650231FAA07008159D1 /* Router */,
+				27E9B64F231FA9FB008159D1 /* Interactor */,
+				27E9B64D231FA9DB008159D1 /* Presenter */,
+				27E9B64C231FA949008159D1 /* View */,
+				27E9B64B231FA937008159D1 /* Protocols */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		27E9B647231FA5E6008159D1 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				275C54D5231FAB1600861B1A /* Router */,
+				27E9B655231FAAD8008159D1 /* Protocols */,
+				27E9B654231FAACD008159D1 /* Presenter */,
+				27E9B653231FAAC8008159D1 /* Interactor */,
+				27E9B652231FAAC0008159D1 /* View */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		27E9B648231FA878008159D1 /* API Service */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "API Service";
+			sourceTree = "<group>";
+		};
+		27E9B649231FA888008159D1 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		27E9B64B231FA937008159D1 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				275C54DB231FC7D000861B1A /* LoginProtocols.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		27E9B64C231FA949008159D1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				275C54D7231FADB200861B1A /* LoginView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		27E9B64D231FA9DB008159D1 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		27E9B64F231FA9FB008159D1 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		27E9B650231FAA07008159D1 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		27E9B652231FAAC0008159D1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		27E9B653231FAAC8008159D1 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		27E9B654231FAACD008159D1 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		27E9B655231FAAD8008159D1 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -260,7 +386,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				27A68E97231E7FAC00BB579E /* Training_Project.xcdatamodeld in Sources */,
+				275C54DC231FC7D000861B1A /* LoginProtocols.swift in Sources */,
 				27A68E91231E7FAC00BB579E /* ViewController.swift in Sources */,
+				275C54D8231FADB200861B1A /* LoginView.swift in Sources */,
 				27A68E8F231E7FAC00BB579E /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
