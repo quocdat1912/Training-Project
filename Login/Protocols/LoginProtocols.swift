@@ -7,6 +7,7 @@
 //
 
 import UIKit
+
 protocol LoginViewProtocol : class {
     var loginPresenter : LoginPresengerProtocol? {get set}
 }
@@ -20,12 +21,19 @@ protocol LoginPresengerProtocol: class {
 }
 
 protocol LoginInteractorOutProtocol: class {
-    
+    var loginPresenter : LoginPresengerProtocol? {get set}
     
 }
 protocol LoginInteractorInputProtocol: class {
-    
+    var loginPresenter: LoginPresengerProtocol? {get set}
+    //Sesion -> LoginInteractor
+    func Success()
 }
 protocol LoginRouterProtocol: class {
     
+}
+
+
+protocol DataManagerProtocol {
+
 }
