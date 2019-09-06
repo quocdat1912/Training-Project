@@ -28,13 +28,13 @@ class Session : SessionProtocol {
             
             print(string!)
             self.loginInteractor?.loginSuccess()
-            self.saveUser(data: data!)
+            self.saveUser(data: string!)
             
         }
         
     } 
 
-    func saveUser(data: Data){
+    func saveUser(data: String){
         UserDefaults.standard.set(data, forKey: "token")
     }
     

@@ -13,6 +13,5 @@ protocol SessionProtocol: class {
     var loginInteractor : LoginInteractorInputProtocol? {get set}
     //LoginInteractor -> Session
     func checkLogin(user: String?, pass: String?)
-    //APIservice -> Session
     
 }
