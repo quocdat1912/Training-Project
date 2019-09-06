@@ -9,6 +9,6 @@
 import Foundation
 
 protocol ApiServiceProtocol: class {
-    //LoginInteractor -> APIservice
-    func checkAccount() -> Bool
+    //Session -> APIservice
+    func post (urlString: String, data: [String: Any], completeHandler:@escaping CompletionHandler)
 }

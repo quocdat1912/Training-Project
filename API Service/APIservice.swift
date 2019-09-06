@@ -10,31 +10,7 @@ import Foundation
 
 typealias CompletionHandler = ((_ data: Data?, _ error: String?) -> Void)
 
-class ApiService {
-    var token : String?
-    func requestLogin (account: String, pass: String, completeHandler : () -> Void) {
-        let url = URL(string: "https://api.unityspace.space/login")!
-        let configuration = URLSessionConfiguration.default
-        let urlSession = URLSession(configuration: configuration)
-        //set method request
-        var request = URLRequest(url: url)
-        request.httpMethod = "POST"
-        //Post data
-        let postPara : [String: String] = ["username": "\(account)",
-                                        "password" : "\(pass)" ]
-        guard let postData = try? JSONSerialization.data(withJSONObject: postPara, options: []) else {return}
-        request.httpBody = postData
-        let task = urlSession.dataTask(with: request) { (data, response, error) in
-            guard error == nil else {return}
-            guard let token = data else {return}
-            print(token)
-            self.token = String(data: token, encoding: .utf8)
-            
-        }
-    }
-    
-    // -----------------
-    
+class ApiService:ApiServiceProtocol {
     
     var dictionaryCompletionHandler: [String: CompletionHandler] = [:]
     
@@ -59,15 +35,22 @@ class ApiService {
             self.handleResponse(data: data, urlResponse: response, error: error)
         }
         task.resume()
+        
+
     }
     
     func handleResponse(data: Data?, urlResponse: URLResponse?, error: Error?) {
         // handle
+        print(Thread.current.description)
         if let url = urlResponse?.url?.absoluteString, let closure = dictionaryCompletionHandler[url] {
-            closure(data, error?.localizedDescription)
+            DispatchQueue.main.async {
+                closure(data, error?.localizedDescription)
+            }
         }
         
     }
+    
+    
     
 }
 

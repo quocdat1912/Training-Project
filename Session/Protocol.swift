@@ -9,9 +9,10 @@
 import Foundation
 
 protocol SessionProtocol: class {
+    var apiService : ApiServiceProtocol? {get set}
+    var loginInteractor : LoginInteractorInputProtocol? {get set}
     //LoginInteractor -> Session
-    func checkSession() -> Bool
+    func checkLogin(user: String?, pass: String?)
     //APIservice -> Session
-    func saveSession()
     
 }
