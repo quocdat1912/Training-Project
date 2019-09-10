@@ -11,7 +11,7 @@ import Foundation
 class LoginInteractor: LoginInteractorInputProtocol {
     
     var session: SessionProtocol?
-    var loginPresenter: LoginPresengerProtocol?
+    weak var loginPresenter: LoginPresengerProtocol?
     
     func loginSuccess() {
         loginPresenter?.didLoginSuccess()

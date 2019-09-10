@@ -46,6 +46,3 @@ protocol LoginRouterProtocol: class {
     static func createLoginModule(view: LoginView)
     
 }
-protocol DataManagerProtocol {
-
-}

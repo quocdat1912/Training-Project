@@ -19,7 +19,14 @@ class LoginView: UIViewController {
         super.viewDidLoad()
         LoginRouter.createLoginModule(view: self)
         setUI()
-        // Do any additional setup after loading the view.
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        
+        guard let token = UserDefaults.standard.value(forKey: "token") else {
+            //viewDidLoad()
+            return
+        }
+        showSuccess()
     }
     
 

@@ -49,6 +49,26 @@ class ApiService:ApiServiceProtocol {
         }
         
     }
+    func get(urlString : String, token: String, completeHandler: @escaping CompletionHandler) {
+        
+        guard let url = URL(string: urlString) else {
+            completeHandler(nil,"Url not found")
+            return
+        }
+        let urlSession = URLSession(configuration: .default)
+        var getRequest = URLRequest(url: url)
+        getRequest.httpMethod = "GET"
+        getRequest.addValue("Bearer \(token)", forHTTPHeaderField: "authorization")
+        //Save completeHandle
+        dictionaryCompletionHandler[urlString] = completeHandler
+        
+        //Get Data
+        let task = urlSession.dataTask(with: getRequest) { (data, response, error) in
+            self.handleResponse(data: data, urlResponse: response, error: error)
+        }
+        task.resume() 
+        
+    }
     
     
     

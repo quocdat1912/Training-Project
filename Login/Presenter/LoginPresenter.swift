@@ -10,7 +10,7 @@ import Foundation
 
 class LoginPresenter: LoginPresengerProtocol {
     
-    var loginView: LoginViewProtocol?
+    weak var loginView: LoginViewProtocol?
     
     var loginRouter: LoginRouterProtocol?
     

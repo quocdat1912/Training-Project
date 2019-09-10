@@ -17,7 +17,20 @@ struct Product {
     var status: Bool
     var urlImage: String
     var quantity : Int
-    var page :Int
+    var page: Int
+    
+}
+struct Catelogy {
+    var id: Int
+    var name: String
+    var level: Int
+    var imageURL : String
+    var page: Int
+    var products : [String]
 }
 
-
+struct Page {
+    var type: String
+    var maxPage: Int
+    var currentPage: Int
+}

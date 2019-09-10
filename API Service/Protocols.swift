@@ -9,6 +9,7 @@
 import Foundation
 
 protocol ApiServiceProtocol: class {
-    //Session -> APIservice
+    //Session, MainInteractor -> APIservice
     func post (urlString: String, data: [String: Any], completeHandler:@escaping CompletionHandler)
+    func get(urlString : String, token: String, completeHandler: @escaping CompletionHandler)
 }
