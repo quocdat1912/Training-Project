@@ -15,14 +15,19 @@
 		274C36182325F1310015DBEE /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274C36172325F1310015DBEE /* MainViewController.swift */; };
 		274DA4772320A5EF00CFB8D7 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274DA4762320A5EF00CFB8D7 /* Model.swift */; };
 		274DA4792320BA0900CFB8D7 /* APIservice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274DA4782320BA0900CFB8D7 /* APIservice.swift */; };
-		274DA47B2321139800CFB8D7 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274DA47A2321139800CFB8D7 /* Protocols.swift */; };
+		274DA47B2321139800CFB8D7 /* APIProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274DA47A2321139800CFB8D7 /* APIProtocols.swift */; };
 		274DA47D232113F400CFB8D7 /* Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274DA47C232113F400CFB8D7 /* Protocol.swift */; };
 		274DA4802321278B00CFB8D7 /* Data+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274DA47F2321278B00CFB8D7 /* Data+Extension.swift */; };
 		274DA4812321278B00CFB8D7 /* Data+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274DA47F2321278B00CFB8D7 /* Data+Extension.swift */; };
 		274DA4822321278B00CFB8D7 /* Data+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274DA47F2321278B00CFB8D7 /* Data+Extension.swift */; };
 		275C54D8231FADB200861B1A /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275C54D7231FADB200861B1A /* LoginView.swift */; };
 		275C54DC231FC7D000861B1A /* LoginProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275C54DB231FC7D000861B1A /* LoginProtocols.swift */; };
-		279D7AF32327ACFC007BB429 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279D7AF22327ACFC007BB429 /* Protocols.swift */; };
+		276D082C2328901000C5C0E6 /* MainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276D082B2328901000C5C0E6 /* MainPresenter.swift */; };
+		276D082E2328902100C5C0E6 /* MainInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276D082D2328902100C5C0E6 /* MainInteractor.swift */; };
+		276D08302328902E00C5C0E6 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276D082F2328902E00C5C0E6 /* Router.swift */; };
+		276D08322328B04900C5C0E6 /* ArrayStringType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276D08312328B04900C5C0E6 /* ArrayStringType.swift */; };
+		276D08342328DB4300C5C0E6 /* PersistenceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276D08332328DB4300C5C0E6 /* PersistenceError.swift */; };
+		279D7AF32327ACFC007BB429 /* DataManagerProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279D7AF22327ACFC007BB429 /* DataManagerProtocols.swift */; };
 		279D7AF52327AD11007BB429 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279D7AF42327AD11007BB429 /* DataManager.swift */; };
 		27A68E8F231E7FAC00BB579E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A68E8E231E7FAC00BB579E /* AppDelegate.swift */; };
 		27A68E91231E7FAC00BB579E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A68E90231E7FAC00BB579E /* ViewController.swift */; };
@@ -60,12 +65,17 @@
 		274C36172325F1310015DBEE /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		274DA4762320A5EF00CFB8D7 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		274DA4782320BA0900CFB8D7 /* APIservice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIservice.swift; sourceTree = "<group>"; };
-		274DA47A2321139800CFB8D7 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
+		274DA47A2321139800CFB8D7 /* APIProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIProtocols.swift; sourceTree = "<group>"; };
 		274DA47C232113F400CFB8D7 /* Protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocol.swift; sourceTree = "<group>"; };
 		274DA47F2321278B00CFB8D7 /* Data+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Extension.swift"; sourceTree = "<group>"; };
 		275C54D7231FADB200861B1A /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		275C54DB231FC7D000861B1A /* LoginProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginProtocols.swift; sourceTree = "<group>"; };
-		279D7AF22327ACFC007BB429 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
+		276D082B2328901000C5C0E6 /* MainPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPresenter.swift; sourceTree = "<group>"; };
+		276D082D2328902100C5C0E6 /* MainInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainInteractor.swift; sourceTree = "<group>"; };
+		276D082F2328902E00C5C0E6 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		276D08312328B04900C5C0E6 /* ArrayStringType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayStringType.swift; sourceTree = "<group>"; };
+		276D08332328DB4300C5C0E6 /* PersistenceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceError.swift; sourceTree = "<group>"; };
+		279D7AF22327ACFC007BB429 /* DataManagerProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManagerProtocols.swift; sourceTree = "<group>"; };
 		279D7AF42327AD11007BB429 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		27A68E8B231E7FAC00BB579E /* Training Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Training Project.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		27A68E8E231E7FAC00BB579E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -112,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				274DA47F2321278B00CFB8D7 /* Data+Extension.swift */,
+				276D08332328DB4300C5C0E6 /* PersistenceError.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -119,6 +130,7 @@
 		275C54D5231FAB1600861B1A /* Router */ = {
 			isa = PBXGroup;
 			children = (
+				276D082F2328902E00C5C0E6 /* Router.swift */,
 			);
 			path = Router;
 			sourceTree = "<group>";
@@ -135,7 +147,7 @@
 		279D7AF12327ACDF007BB429 /* DataManager */ = {
 			isa = PBXGroup;
 			children = (
-				279D7AF22327ACFC007BB429 /* Protocols.swift */,
+				279D7AF22327ACFC007BB429 /* DataManagerProtocols.swift */,
 				279D7AF42327AD11007BB429 /* DataManager.swift */,
 			);
 			path = DataManager;
@@ -228,7 +240,7 @@
 			isa = PBXGroup;
 			children = (
 				274DA4782320BA0900CFB8D7 /* APIservice.swift */,
-				274DA47A2321139800CFB8D7 /* Protocols.swift */,
+				274DA47A2321139800CFB8D7 /* APIProtocols.swift */,
 			);
 			path = "API Service";
 			sourceTree = "<group>";
@@ -237,6 +249,7 @@
 			isa = PBXGroup;
 			children = (
 				274DA4762320A5EF00CFB8D7 /* Model.swift */,
+				276D08312328B04900C5C0E6 /* ArrayStringType.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -292,6 +305,7 @@
 		27E9B653231FAAC8008159D1 /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
+				276D082D2328902100C5C0E6 /* MainInteractor.swift */,
 			);
 			path = Interactor;
 			sourceTree = "<group>";
@@ -299,6 +313,7 @@
 		27E9B654231FAACD008159D1 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
+				276D082B2328901000C5C0E6 /* MainPresenter.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -445,11 +460,15 @@
 				27A68E97231E7FAC00BB579E /* Training_Project.xcdatamodeld in Sources */,
 				274DA4772320A5EF00CFB8D7 /* Model.swift in Sources */,
 				275C54DC231FC7D000861B1A /* LoginProtocols.swift in Sources */,
+				276D082E2328902100C5C0E6 /* MainInteractor.swift in Sources */,
+				276D08342328DB4300C5C0E6 /* PersistenceError.swift in Sources */,
 				27A68E91231E7FAC00BB579E /* ViewController.swift in Sources */,
 				275C54D8231FADB200861B1A /* LoginView.swift in Sources */,
 				274DA47D232113F400CFB8D7 /* Protocol.swift in Sources */,
 				2731DADF23221084004A144B /* LoginInteractor.swift in Sources */,
 				279D7AF52327AD11007BB429 /* DataManager.swift in Sources */,
+				276D082C2328901000C5C0E6 /* MainPresenter.swift in Sources */,
+				276D08302328902E00C5C0E6 /* Router.swift in Sources */,
 				274C36182325F1310015DBEE /* MainViewController.swift in Sources */,
 				274DA4792320BA0900CFB8D7 /* APIservice.swift in Sources */,
 				274C36162325ED4A0015DBEE /* MainProtocols.swift in Sources */,
@@ -457,9 +476,10 @@
 				2731DADD23220649004A144B /* Session.swift in Sources */,
 				274DA4802321278B00CFB8D7 /* Data+Extension.swift in Sources */,
 				27A68E8F231E7FAC00BB579E /* AppDelegate.swift in Sources */,
+				276D08322328B04900C5C0E6 /* ArrayStringType.swift in Sources */,
 				2731DAE323223A99004A144B /* LoginRouter.swift in Sources */,
-				279D7AF32327ACFC007BB429 /* Protocols.swift in Sources */,
-				274DA47B2321139800CFB8D7 /* Protocols.swift in Sources */,
+				279D7AF32327ACFC007BB429 /* DataManagerProtocols.swift in Sources */,
+				274DA47B2321139800CFB8D7 /* APIProtocols.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

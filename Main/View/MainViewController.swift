@@ -8,13 +8,28 @@
 
 import UIKit
 
-class MainViewController: UIViewController {
+class MainViewController: UIViewController, MainViewProtocol {
+    var presenter: MainPresenterProtocol?
+    
+    func displayCategory(category: [Category]?) {
+        
+    }
+    
+    func displayProduct(prod: [Product]?) {
+        
+    }
+    
+    func showError() {
+        
+    }
+    
 
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var contentView: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        MainRouter.createMainModule(view: self)
+        presenter?.displayDefault()
         // Do any additional setup after loading the view.
     }
     

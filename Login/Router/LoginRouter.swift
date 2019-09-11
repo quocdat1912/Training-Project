@@ -9,6 +9,9 @@
 import UIKit
 
 class LoginRouter:LoginRouterProtocol {
+   
+    
+    
     static func createLoginModule (view: LoginView) {
         let presenter: LoginPresengerProtocol = LoginPresenter()
         let interactor: LoginInteractorInputProtocol = LoginInteractor()
@@ -26,6 +29,11 @@ class LoginRouter:LoginRouterProtocol {
         session.apiService = apiService
         
     }
-    
+    func presentMainViewController() {
+        
+    }
+    func createMainModule() {
+        
+    }
     
 }

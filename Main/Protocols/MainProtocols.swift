@@ -11,33 +11,33 @@ import Foundation
 protocol MainViewProtocol: class {
     var presenter : MainPresenterProtocol? {get set}
     //Presenter -> View
-    func displayCategory (category : [Catelogy]?)
+    func displayCategory (category : [Category]?)
     func displayProduct(prod:[Product]?)
     func showError()
 }
 
-protocol MainPresenterProtocol {
+protocol MainPresenterProtocol: class {
     var view: MainViewProtocol? {get set}
     var interactor : MainInteractorProtocol? {get set}
     //View -> Presenter
     func displayDefault()
     func displayProductByCatelogy()
     //Interactor -> Presenter
-    func didGetDefault()
-    func didGetProductByCatelogy()
+    func didGetData()
+    //func didGetProductByCatelogy()
 }
 
 protocol MainInteractorProtocol : class {
     var presenter : MainPresenterProtocol? {get set}
     var Api : ApiServiceProtocol? {get set}
     var datamanager : DataManagerProtocol? {get set}
-    //Presenter -> Interactor
-    func retrieveDefault()
-    func retriveProductByCatelogy()
-    //
     
+    //Presenter -> Interactor
+    func retrieveData()
+
 }
 protocol MainRouterProtocol {
+    static func createMainModule(view : MainViewController)
 }
 
 

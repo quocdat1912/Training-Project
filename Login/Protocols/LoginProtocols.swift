@@ -26,6 +26,7 @@ protocol LoginPresengerProtocol: class {
     func didLoginFail(errorString : String)
     //View -> presenter
     func loginOnTap(user: String, pass: String)
+    func showMainController()
     
 }
 
@@ -44,5 +45,7 @@ protocol LoginInteractorInputProtocol: class {
 }
 protocol LoginRouterProtocol: class {
     static func createLoginModule(view: LoginView)
-    
+    //Presnter -> router
+    func createMainModule()
+    func presentMainViewController()
 }

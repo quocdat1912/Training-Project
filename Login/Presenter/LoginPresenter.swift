@@ -10,6 +10,8 @@ import Foundation
 
 class LoginPresenter: LoginPresengerProtocol {
     
+    
+    
     weak var loginView: LoginViewProtocol?
     
     var loginRouter: LoginRouterProtocol?
@@ -28,5 +30,7 @@ class LoginPresenter: LoginPresengerProtocol {
         loginInteratorInput?.loginInput(user: user, pass: pass)
         loginView?.showLoading()
     }
-    
+    func showMainController() {
+        loginRouter?.presentMainViewController()
+    }
 }

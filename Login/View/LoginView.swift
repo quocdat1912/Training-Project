@@ -26,7 +26,7 @@ class LoginView: UIViewController {
             //viewDidLoad()
             return
         }
-        showSuccess()
+        performSegue(withIdentifier: "mainSegue", sender: nil)
     }
     
 
@@ -62,11 +62,13 @@ class LoginView: UIViewController {
 extension LoginView : LoginViewProtocol {
     func showError(erroString: String) {
         showAlert(titleString: erroString)
+        
     }
     
     
     func showSuccess() {
-        showAlert(titleString: "LoginSuccess")
+        //showAlert(titleString: "LoginSuccess")
+        performSegue(withIdentifier: "mainSegue", sender: nil)
     }
     
     func showLoading() {
