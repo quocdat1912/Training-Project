@@ -58,13 +58,17 @@ class ApiService:ApiServiceProtocol {
         let urlSession = URLSession(configuration: .default)
         var getRequest = URLRequest(url: url)
         getRequest.httpMethod = "GET"
-        getRequest.addValue("Bearer \(token)", forHTTPHeaderField: "authorization")
+        print(token)
+        getRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        let authorization = "Bearer " + token
+        getRequest.addValue(authorization, forHTTPHeaderField: "authorization")
         //Save completeHandle
         dictionaryCompletionHandler[urlString] = completeHandler
         
         //Get Data
         let task = urlSession.dataTask(with: getRequest) { (data, response, error) in
             self.handleResponse(data: data, urlResponse: response, error: error)
+            //print(data!)
         }
         task.resume() 
         

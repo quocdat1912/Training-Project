@@ -17,7 +17,7 @@ protocol DataManagerProtocol: class{
     func fetchCategory(handler: DataHandler) throws
     func saveProduct(products: [ProductModel], handler: DataHandler) throws
     func saveCategory(categories: [CategoryModel],handler: DataHandler) throws
-    func savePage(pages: [Page], handler: DataHandler) throws
+    func savePage(type:String, maxPage:Int, currentPage: Int, handler: DataHandler) throws
     func updatePage(page : Page ,handLer: DataHandler) throws
     func fetchPage(handler : DataHandler) throws
     

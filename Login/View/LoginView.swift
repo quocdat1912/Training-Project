@@ -19,14 +19,18 @@ class LoginView: UIViewController {
         super.viewDidLoad()
         LoginRouter.createLoginModule(view: self)
         setUI()
+        UserDefaults.standard.removeObject(forKey: "token")
+        
     }
     override func viewWillAppear(_ animated: Bool) {
-        
+  
+    }
+    override func viewDidAppear(_ animated: Bool) {
         guard let token = UserDefaults.standard.value(forKey: "token") else {
-            //viewDidLoad()
             return
         }
-        performSegue(withIdentifier: "mainSegue", sender: nil)
+        print(token)
+        showSuccess()
     }
     
 
@@ -52,6 +56,8 @@ class LoginView: UIViewController {
         userNameTextField.layer.addSublayer(bottomLine)
         passWordTextField.layer.addSublayer(bottomLine2)
         passWordTextField.isSecureTextEntry = true
+        userNameTextField.text = "testshopify"
+        passWordTextField.text = "testshopify"
     }
     func showAlert(titleString : String){
         let alertController = UIAlertController(title: "Thông báo", message: titleString, preferredStyle: .alert)

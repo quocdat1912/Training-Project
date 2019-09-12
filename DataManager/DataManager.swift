@@ -10,8 +10,7 @@ import Foundation
 import CoreData
 
 class DataManager: DataManagerProtocol {
-    
-    
+
     func saveProduct(products: [ProductModel], handler: ([NSManagedObject]?) -> Void) throws {
         let managedContext = AppDelegate.shared.persistentContainer.viewContext
         guard let entity = NSEntityDescription.entity(forEntityName: "Product", in: managedContext) else {
@@ -21,7 +20,7 @@ class DataManager: DataManagerProtocol {
         for product in products {
             let pro = Product(entity: entity, insertInto: managedContext)
             pro.id = product.id
-            pro.image_url = product.urlImage
+            pro.image_url = product.imageUrl
             pro.name = product.name
             pro.page = Int16(product.page)
             pro.price = product.price
@@ -41,31 +40,28 @@ class DataManager: DataManagerProtocol {
         for category in categories {
             let cate = Category(entity: entity, insertInto: managedContext)
             cate.id = category.id
-            cate.image_url = category.imageURL
+            cate.image_url = category.imageUrl
             cate.level = Int16(category.level)
             cate.name = category.name
             cate.page = Int16(category.page)
-            cate.products = category.products
+            cate.products = category.productIds
             try managedContext.save()
         }
     }
     
-    func savePage(pages: [Page], handler: ([NSManagedObject]?) -> Void) throws {
+    func savePage(type:String, maxPage:Int, currentPage: Int, handler: ([NSManagedObject]?) -> Void) throws {
         let managedContext = AppDelegate.shared.persistentContainer.viewContext
         guard let entity = NSEntityDescription.entity(forEntityName: "Page", in: managedContext) else {
             throw PersistenceError.couldNotSaveObject
         }
-        for page in pages{
-            let curentPage = Page(entity: entity, insertInto: managedContext)
-            curentPage.type = page.type
-            curentPage.max_page = page.max_page
-            curentPage.current_page = page.current_page
+            let page = Page(entity: entity, insertInto: managedContext)
+            page.type = type
+            page.max_page = Int16(maxPage)
+            page.current_page = Int16(currentPage)
             
             try managedContext.save()
         }
-        
-        
-    }
+
     
     func fetchProduct(handler: ([NSManagedObject]?) -> Void) throws {
         let managedContext = AppDelegate.shared.persistentContainer.viewContext
@@ -113,6 +109,4 @@ class DataManager: DataManagerProtocol {
             throw PersistenceError.couldNotFetch
         }
     }
-    
-    
 }
