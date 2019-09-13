@@ -10,7 +10,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "API Service/APIservice.swift"
-            timestampString = "589970631.4912241"
+            timestampString = "590067005.797403"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "44"
@@ -42,7 +42,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Main/View/MainViewController.swift"
-            timestampString = "589970631.491486"
+            timestampString = "590065975.0035011"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "13"
@@ -58,7 +58,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Main/View/MainViewController.swift"
-            timestampString = "589970631.491573"
+            timestampString = "590065975.003589"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "25"
@@ -106,7 +106,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Main/View/MainViewController.swift"
-            timestampString = "589970631.491659"
+            timestampString = "590065975.003662"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "26"
@@ -213,24 +213,8 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Main/Interactor/MainInteractor.swift"
-            timestampString = "589970631.491747"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "21"
-            endingLineNumber = "21"
-            landmarkName = "parseCategoryData(data:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "API Service/APIservice.swift"
-            timestampString = "589970631.492382"
+            timestampString = "590067005.797652"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "59"
@@ -246,7 +230,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "API Service/APIservice.swift"
-            timestampString = "589970631.492488"
+            timestampString = "590067005.7977591"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "71"
@@ -261,93 +245,14 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Main/Interactor/MainInteractor.swift"
-            timestampString = "589970631.4925719"
+            filePath = "API Service/APIservice.swift"
+            timestampString = "590067005.797824"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "20"
-            endingLineNumber = "20"
-            landmarkName = "parseCategoryData(data:)"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
+            landmarkName = "post(urlString:data:completeHandler:)"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Main/Interactor/MainInteractor.swift"
-            timestampString = "589970631.4930021"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "29"
-            endingLineNumber = "29"
-            landmarkName = "parseCategoryData(data:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Main/Interactor/MainInteractor.swift"
-            timestampString = "589970631.493383"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "33"
-            endingLineNumber = "33"
-            landmarkName = "parseCategoryData(data:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Training_Project.MainInteractor.parseCategoryData(data: Swift.Optional&lt;Foundation.Data&gt;) -&gt; ()"
-                  moduleName = "Training Project"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/nqd.1912/Documents/Training%20Project/Main/Interactor/MainInteractor.swift"
-                  timestampString = "589970066.133486"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "33"
-                  endingLineNumber = "33"
-                  offsetFromSymbolStart = "3903">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Training_Project.MainInteractor.parseCategoryData(data: Swift.Optional&lt;Foundation.Data&gt;) -&gt; ()"
-                  moduleName = "Training Project"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/nqd.1912/Documents/Training%20Project/Main/Interactor/MainInteractor.swift"
-                  timestampString = "589970066.1364419"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "33"
-                  endingLineNumber = "33"
-                  offsetFromSymbolStart = "4112">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Training_Project.MainInteractor.parseCategoryData(data: Swift.Optional&lt;Foundation.Data&gt;) -&gt; ()"
-                  moduleName = "Training Project"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/nqd.1912/Documents/Training%20Project/Main/Interactor/MainInteractor.swift"
-                  timestampString = "589970066.138973"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "33"
-                  endingLineNumber = "33"
-                  offsetFromSymbolStart = "4712">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

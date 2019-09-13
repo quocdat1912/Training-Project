@@ -23,7 +23,8 @@ protocol MainPresenterProtocol: class {
     func displayDefault()
     func displayProductByCatelogy()
     //Interactor -> Presenter
-    func didGetData()
+    func didGetProducts(products:[Product])
+    func didGetCategories(categories:[Category]) 
     //func didGetProductByCatelogy()
 }
 
@@ -34,6 +35,7 @@ protocol MainInteractorProtocol : class {
     
     //Presenter -> Interactor
     func retrieveData()
+    func deleteDataBase()
 
 }
 protocol MainRouterProtocol {

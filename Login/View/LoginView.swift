@@ -29,7 +29,7 @@ class LoginView: UIViewController {
         guard let token = UserDefaults.standard.value(forKey: "token") else {
             return
         }
-        print(token)
+        //print(token)
         showSuccess()
     }
     

@@ -58,7 +58,7 @@ class ApiService:ApiServiceProtocol {
         let urlSession = URLSession(configuration: .default)
         var getRequest = URLRequest(url: url)
         getRequest.httpMethod = "GET"
-        print(token)
+        //print(token)
         getRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
         let authorization = "Bearer " + token
         getRequest.addValue(authorization, forHTTPHeaderField: "authorization")

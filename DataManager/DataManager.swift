@@ -109,4 +109,15 @@ class DataManager: DataManagerProtocol {
             throw PersistenceError.couldNotFetch
         }
     }
+    
+    func deleteAllData(entityName: String){
+        let fetch = NSFetchRequest<NSFetchRequestResult>(entityName: entityName)
+        let request = NSBatchDeleteRequest(fetchRequest: fetch)
+        let managedContext = AppDelegate.shared.persistentContainer.viewContext
+        do{
+            try managedContext.execute(request)
+        }catch{
+            print(error.localizedDescription)
+        }
+    }
 }

@@ -54,6 +54,8 @@ struct ProductModel: Codable {
         var imageUrl: String!
         var quantity : Int!
         var page: Int!
+    init() {
+    }
     
     init(from decoder: Decoder) throws {
         let map = try decoder.container(keyedBy: CodingKeys.self)
@@ -84,6 +86,8 @@ struct CategoryModel : Codable {
     var productIds: [String]!
     var page: Int!
     
+    init() {
+    }
     init(from decoder: Decoder) throws {
         let map = try decoder.container(keyedBy: CodingKeys.self)
         self.id = (try? map.decode(String.self, forKey: CodingKeys.id)) ?? ""
