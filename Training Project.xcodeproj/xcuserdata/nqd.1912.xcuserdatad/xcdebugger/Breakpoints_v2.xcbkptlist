@@ -26,7 +26,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Session/Session.swift"
-            timestampString = "589970631.491377"
+            timestampString = "590293678.0419919"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "31"
@@ -42,169 +42,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Main/View/MainViewController.swift"
-            timestampString = "590065975.0035011"
+            timestampString = "590316397.8178101"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "13"
             endingLineNumber = "13"
             landmarkName = "MainViewController"
             landmarkType = "3">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Main/View/MainViewController.swift"
-            timestampString = "590065975.003589"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "25"
-            endingLineNumber = "25"
-            landmarkName = "MainViewController"
-            landmarkType = "3">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Training_Project.MainViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; Training_Project.MainViewController"
-                  moduleName = "Training Project"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/nqd.1912/Documents/Training%20Project/Main/View/MainViewController.swift"
-                  timestampString = "589957017.301692"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "27"
-                  endingLineNumber = "27"
-                  offsetFromSymbolStart = "311">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Training_Project.MainViewController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;Training_Project.MainViewController&gt;"
-                  moduleName = "Training Project"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/nqd.1912/Documents/Training%20Project/Main/View/MainViewController.swift"
-                  timestampString = "589957017.310112"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "27"
-                  endingLineNumber = "27"
-                  offsetFromSymbolStart = "210">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Main/View/MainViewController.swift"
-            timestampString = "590065975.003662"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "26"
-            endingLineNumber = "26"
-            landmarkName = "MainViewController"
-            landmarkType = "3">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Training_Project.MainViewController.scrollView.getter : Swift.Optional&lt;__C.UIScrollView&gt;"
-                  moduleName = "Training Project"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/nqd.1912/Documents/Training%20Project/Main/View/MainViewController.swift"
-                  timestampString = "589957017.317726"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "27"
-                  endingLineNumber = "27"
-                  offsetFromSymbolStart = "86">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Training_Project.MainViewController.scrollView.setter : Swift.Optional&lt;__C.UIScrollView&gt;"
-                  moduleName = "Training Project"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/nqd.1912/Documents/Training%20Project/Main/View/MainViewController.swift"
-                  timestampString = "589957017.3210011"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "27"
-                  endingLineNumber = "27"
-                  offsetFromSymbolStart = "106">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Training_Project.MainViewController.scrollView.modify : Swift.Optional&lt;__C.UIScrollView&gt;"
-                  moduleName = "Training Project"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/nqd.1912/Documents/Training%20Project/Main/View/MainViewController.swift"
-                  timestampString = "589957017.323588"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "0"
-                  endingLineNumber = "0"
-                  offsetFromSymbolStart = "69">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Training_Project.MainViewController.scrollView.modify : Swift.Optional&lt;__C.UIScrollView&gt; with unmangled suffix &quot;.resume.0&quot;"
-                  moduleName = "Training Project"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/nqd.1912/Documents/Training%20Project/Main/View/MainViewController.swift"
-                  timestampString = "589957017.326063"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "27"
-                  endingLineNumber = "27"
-                  offsetFromSymbolStart = "72">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Training_Project.MainViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; Training_Project.MainViewController"
-                  moduleName = "Training Project"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/nqd.1912/Documents/Training%20Project/Main/View/MainViewController.swift"
-                  timestampString = "589957017.329226"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "27"
-                  endingLineNumber = "27"
-                  offsetFromSymbolStart = "311">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Training_Project.MainViewController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;Training_Project.MainViewController&gt;"
-                  moduleName = "Training Project"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/nqd.1912/Documents/Training%20Project/Main/View/MainViewController.swift"
-                  timestampString = "589957017.331977"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "27"
-                  endingLineNumber = "27"
-                  offsetFromSymbolStart = "210">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -252,6 +96,150 @@
             startingLineNumber = "32"
             endingLineNumber = "32"
             landmarkName = "post(urlString:data:completeHandler:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Main/Interactor/MainInteractor.swift"
+            timestampString = "590316397.818527"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "86"
+            endingLineNumber = "86"
+            landmarkName = "retrieveData()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Main/Interactor/MainInteractor.swift"
+            timestampString = "590316397.81859"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "182"
+            endingLineNumber = "182"
+            landmarkName = "categorySaver()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Main/Interactor/MainInteractor.swift"
+            timestampString = "590316397.818642"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "181"
+            endingLineNumber = "181"
+            landmarkName = "categorySaver()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Main/Interactor/MainInteractor.swift"
+            timestampString = "590316397.818689"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "178"
+            endingLineNumber = "178"
+            landmarkName = "categorySaver()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Training_Project.MainInteractor.categorySaver() -&gt; ()"
+                  moduleName = "Training Project"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nqd.1912/Documents/Training%20Project/Main/Interactor/MainInteractor.swift"
+                  timestampString = "590292891.686951"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "258"
+                  endingLineNumber = "258"
+                  offsetFromSymbolStart = "1063">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Training_Project.MainInteractor.categorySaver() -&gt; ()"
+                  moduleName = "Training Project"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nqd.1912/Documents/Training%20Project/Main/Interactor/MainInteractor.swift"
+                  timestampString = "590292891.6893589"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "258"
+                  endingLineNumber = "258"
+                  offsetFromSymbolStart = "3051">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Main/Interactor/MainInteractor.swift"
+            timestampString = "590316397.818736"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "173"
+            endingLineNumber = "173"
+            landmarkName = "categorySaver()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Main/Interactor/MainInteractor.swift"
+            timestampString = "590316397.818782"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "171"
+            endingLineNumber = "171"
+            landmarkName = "categorySaver()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Main/Interactor/MainInteractor.swift"
+            timestampString = "590316397.818828"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "128"
+            endingLineNumber = "128"
+            landmarkName = "productSaver()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

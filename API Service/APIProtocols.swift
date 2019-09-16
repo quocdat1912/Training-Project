@@ -12,4 +12,5 @@ protocol ApiServiceProtocol: class {
     //Session, MainInteractor -> APIservice
     func post (urlString: String, data: [String: Any], completeHandler:@escaping CompletionHandler)
     func get(urlString : String, token: String, completeHandler: @escaping CompletionHandler)
+    static func downloadingData (urlString: String, completeHandler: @escaping CompletionHandler)
 }

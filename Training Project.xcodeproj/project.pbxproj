@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		272B59B8232F799600A2C888 /* GridCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272B59B7232F799600A2C888 /* GridCollectionViewCell.swift */; };
+		272B59BA232F79A600A2C888 /* ListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272B59B9232F79A600A2C888 /* ListCollectionViewCell.swift */; };
 		2731DADD23220649004A144B /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2731DADC23220649004A144B /* Session.swift */; };
 		2731DADF23221084004A144B /* LoginInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2731DADE23221084004A144B /* LoginInteractor.swift */; };
 		2731DAE123221363004A144B /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2731DAE023221363004A144B /* LoginPresenter.swift */; };
@@ -57,6 +59,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		272B59B7232F799600A2C888 /* GridCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GridCollectionViewCell.swift; path = ../../Login/View/GridCollectionViewCell.swift; sourceTree = "<group>"; };
+		272B59B9232F79A600A2C888 /* ListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ListCollectionViewCell.swift; path = ../../Login/View/ListCollectionViewCell.swift; sourceTree = "<group>"; };
 		2731DADC23220649004A144B /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		2731DADE23221084004A144B /* LoginInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInteractor.swift; sourceTree = "<group>"; };
 		2731DAE023221363004A144B /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
@@ -297,6 +301,8 @@
 		27E9B652231FAAC0008159D1 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				272B59B7232F799600A2C888 /* GridCollectionViewCell.swift */,
+				272B59B9232F79A600A2C888 /* ListCollectionViewCell.swift */,
 				274C36172325F1310015DBEE /* MainViewController.swift */,
 			);
 			path = View;
@@ -458,6 +464,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				27A68E97231E7FAC00BB579E /* Training_Project.xcdatamodeld in Sources */,
+				272B59BA232F79A600A2C888 /* ListCollectionViewCell.swift in Sources */,
 				274DA4772320A5EF00CFB8D7 /* Model.swift in Sources */,
 				275C54DC231FC7D000861B1A /* LoginProtocols.swift in Sources */,
 				276D082E2328902100C5C0E6 /* MainInteractor.swift in Sources */,
@@ -469,6 +476,7 @@
 				279D7AF52327AD11007BB429 /* DataManager.swift in Sources */,
 				276D082C2328901000C5C0E6 /* MainPresenter.swift in Sources */,
 				276D08302328902E00C5C0E6 /* Router.swift in Sources */,
+				272B59B8232F799600A2C888 /* GridCollectionViewCell.swift in Sources */,
 				274C36182325F1310015DBEE /* MainViewController.swift in Sources */,
 				274DA4792320BA0900CFB8D7 /* APIservice.swift in Sources */,
 				274C36162325ED4A0015DBEE /* MainProtocols.swift in Sources */,

@@ -18,7 +18,7 @@ class MainPresenter: MainPresenterProtocol {
     
     func displayDefault() {
         interactor?.retrieveData()
-        //interactor?.deleteDataBase()
+//        interactor?.deleteDataBase()
     }
     
     func displayProductByCatelogy() {
@@ -39,6 +39,7 @@ class MainPresenter: MainPresenterProtocol {
             self.products.append(productModel)
         }
         print("Number of products: \(self.products.count)")
+        view?.displayProduct(products: self.products)
     }
     
     func didGetCategories(categories: [Category]) {
@@ -54,8 +55,16 @@ class MainPresenter: MainPresenterProtocol {
             self.categories.append(categoryModel)
         }
         print("Number of categories: \(self.categories.count)")
+        view?.displayCategory(categories: self.categories)
     }
-
+    let  imageCache = NSCache<NSString, UIImage>()
+    func downLoadImage(url: URL, completion: @escaping (UIImage?, Error?)-> Void){
+        if let cachedImage = imageCache.object(forKey: url.absoluteString as NSString){
+            completion(cachedImage, nil)
+        }else{
+        }
+        
+    }
     
     
 }

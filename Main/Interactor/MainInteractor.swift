@@ -115,85 +115,7 @@ class MainInteractor : MainInteractorProtocol {
             didSavePage()
         }
     }
-//    func didSavePage (){
-//        let token = UserDefaults.standard.string(forKey: "token")!
-//        var productPage: Int = 0
-//        var categoryPage: Int = 0
-//        //var productString = "https://api.unityspace.space/v0/stores/3/products?page=\(productPage)&limit=100"
-//        //var categoryString = "https://api.unityspace.space/v0/stores/3/catalogs?page=\(categoryPage)&limit=100"
-//        var pages : [Page] = []
 //
-//        do{
-//            try datamanager?.fetchPage(handler: { (nsmanagedobject) in
-//                pages = nsmanagedobject as! [Page]
-//            })
-//            print("number of pages: \(pages.count)")
-//            for page in pages{
-//                if page.type == "product" {
-//                    //print("get here")
-//                    if page.current_page < page.max_page{
-//                        for i in page.current_page+1...page.max_page{
-//                            productPage = Int(i)
-//                            let productString = "https://api.unityspace.space/v0/stores/3/products?page=\(productPage)&limit=100"
-//                            Api?.get(urlString: productString, token: token, completeHandler: { (data, error) in
-//                                let products = self.parseProductData(data: data)
-//                                do {
-//                                    try self.datamanager?.saveProduct(products: products, handler: { (nsmanagedobject) in
-//
-//                                    })
-//                                    page.current_page = i
-//                                    try self.datamanager?.updatePage(page: page, handLer: { (nsmanagedobject) in
-//                                    })
-//                                    if page.current_page == page.max_page {
-//                                        self.saveProductSuccess()
-//                                    }
-//                                }
-//                                catch {
-//                                    print(error.localizedDescription)
-//                                }
-//
-//                            })
-//
-//                        }
-//                    }
-//                    else{
-//                        saveProductSuccess()
-//                    }
-//
-//                }
-//                else{
-//                    if page.current_page < page.max_page{
-//                        for i in page.current_page+1...page.max_page{
-//                            categoryPage = Int(i)
-//                            let categoryString = "https://api.unityspace.space/v0/stores/3/catalogs?page=\(categoryPage)&limit=100"
-//                            Api?.get(urlString: categoryString, token: token, completeHandler: { (data, error) in
-//                                let categories = self.parseCategoryData(data: data)
-//                                do{
-//                                    try self.datamanager?.saveCategory(categories: categories, handler: { (nsmanagedobject) in
-//
-//                                    })
-//                                    page.current_page = i
-//                                    try self.datamanager?.updatePage(page: page, handLer: { (nsmanagedobject) in
-//                                    })
-//                                    if page.current_page == page.max_page {
-//                                        self.saveProductSuccess()
-//                                    }
-//                                }catch{
-//                                    print(error.localizedDescription)
-//                                }
-//                            })
-//                        }
-//                    }
-//                    else{
-//                        saveCategorySuccess()
-//                    }
-//                }
-//            }
-//        }catch{
-//            print(error.localizedDescription)
-//        }
-//
-//    }
     
     func didSavePage()  {
         productSaver()
@@ -213,39 +135,37 @@ class MainInteractor : MainInteractorProtocol {
         }catch{
             print(error.localizedDescription)
         }
-        var page = Page()
-        for i in pages{
-            if(i.type! == "product"){
-                page = i
+        //var page: Page = Page()
+        for page in pages{
+            if(page.type! == "product"){
+                if page.current_page < page.max_page{
+                    
+                    let productString = "https://api.unityspace.space/v0/stores/3/products?page=\(page.current_page + 1)&limit=100"
+                    Api?.get(urlString: productString, token: token, completeHandler: { (data, error) in
+                        let products = self.parseProductData(data: data)
+                        do {
+                            try self.datamanager?.saveProduct(products: products, handler: { (nsmanagedobject) in
+                                
+                            })
+                            page.current_page += 1
+                            try self.datamanager?.updatePage(page: page, handLer: { (nsmanagedobject) in
+                            })
+                            self.productSaver()
+                        }
+                        catch {
+                            print(error.localizedDescription)
+                        }
+                        
+                    })
+                    
+                    
+                }
+                else{
+                    saveProductSuccess()
+                }
             }
         }
-        //var productPage = page.current_page
-        if page.current_page < page.max_page{
-
-                //productPage = Int(i)
-                let productString = "https://api.unityspace.space/v0/stores/3/products?page=\(page.current_page + 1)&limit=100"
-                Api?.get(urlString: productString, token: token, completeHandler: { (data, error) in
-                    let products = self.parseProductData(data: data)
-                    do {
-                        try self.datamanager?.saveProduct(products: products, handler: { (nsmanagedobject) in
-                            
-                        })
-                        page.current_page += 1
-                        try self.datamanager?.updatePage(page: page, handLer: { (nsmanagedobject) in
-                        })
-                        self.productSaver()
-                    }
-                    catch {
-                        print(error.localizedDescription)
-                    }
-                    
-                })
-                
-            
-        }
-        else{
-            saveProductSuccess()
-        }
+        
     }
     
     func categorySaver()  {
@@ -259,39 +179,39 @@ class MainInteractor : MainInteractorProtocol {
             print(error.localizedDescription)
         }
         
-        var page: Page = Page()
-        for i in pages{
-            if(i.type! == "category"){
-                page = i
+        //var page = Page()
+        for page in pages{
+            if(page.type! == "category"){
+                if page.current_page < page.max_page{
+                    
+                    //productPage = Int(i)
+                    let categoryString = "https://api.unityspace.space/v0/stores/3/catalogs?page=\(page.current_page + 1)&limit=100"
+                    Api?.get(urlString: categoryString, token: token, completeHandler: { (data, error) in
+                        let categories = self.parseCategoryData(data: data)
+                        do {
+                            try self.datamanager?.saveCategory(categories: categories, handler: { (nsmanagedobject) in
+                                
+                            })
+                            page.current_page += 1
+                            try self.datamanager?.updatePage(page: page, handLer: { (nsmanagedobject) in
+                            })
+                            self.productSaver()
+                        }
+                        catch {
+                            print(error.localizedDescription)
+                        }
+                        
+                    })
+                    
+                    
+                }
+                else{
+                    saveCategorySuccess()
+                }
             }
         }
         //var productPage = page.current_page
-        if page.current_page < page.max_page{
-            
-            //productPage = Int(i)
-            let categoryString = "https://api.unityspace.space/v0/stores/3/catalogs?page=\(page.current_page + 1)&limit=100"
-            Api?.get(urlString: categoryString, token: token, completeHandler: { (data, error) in
-                let categories = self.parseCategoryData(data: data)
-                do {
-                    try self.datamanager?.saveCategory(categories: categories, handler: { (nsmanagedobject) in
-                        
-                    })
-                    page.current_page += 1
-                    try self.datamanager?.updatePage(page: page, handLer: { (nsmanagedobject) in
-                    })
-                    self.productSaver()
-                }
-                catch {
-                    print(error.localizedDescription)
-                }
-                
-            })
-            
-            
-        }
-        else{
-            saveCategorySuccess()
-        }
+       
     }
     
     func checkDataBase() -> Bool {

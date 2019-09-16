@@ -90,6 +90,5 @@ extension LoginView : LoginViewProtocol {
     func hideLoading() {
         dismiss(animated: false, completion: nil)
     }
-    
-    
+  
 }

@@ -11,8 +11,8 @@ import Foundation
 protocol MainViewProtocol: class {
     var presenter : MainPresenterProtocol? {get set}
     //Presenter -> View
-    func displayCategory (category : [Category]?)
-    func displayProduct(prod:[Product]?)
+    func displayCategory (categories: [CategoryModel])
+    func displayProduct(products:[ProductModel])
     func showError()
 }
 

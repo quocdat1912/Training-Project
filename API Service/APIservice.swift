@@ -73,8 +73,23 @@ class ApiService:ApiServiceProtocol {
         task.resume() 
         
     }
-    
-    
+    func downloadingData (urlString: String, completeHandler: @escaping CompletionHandler){
+        guard let url = URL(string: urlString) else {
+            completeHandler(nil,"Url not found")
+            return
+        }
+        let urlSession = URLSession(configuration: .default)
+        var getRequest = URLRequest(url: url)
+        let task = urlSession.dataTask(with: getRequest) { (data, response, error) in
+            DispatchQueue.global(qos: .userInteractive).async {
+                completeHandler(data, error?.localizedDescription)
+            }
+        }
+        task.resume()
+    }
     
 }
+    
+    
+
 
