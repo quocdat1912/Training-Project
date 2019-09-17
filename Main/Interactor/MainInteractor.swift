@@ -202,8 +202,6 @@ class MainInteractor : MainInteractorProtocol {
                         }
                         
                     })
-                    
-                    
                 }
                 else{
                     saveCategorySuccess()
@@ -244,7 +242,7 @@ class MainInteractor : MainInteractorProtocol {
             print(error.localizedDescription)
         }
     }
-    func saveCategorySuccess()  {
+    func saveCategorySuccess() {
         do{
             try datamanager?.fetchCategory(handler: { (nsmanagedobject) in
                 let categories = nsmanagedobject as! [Category]

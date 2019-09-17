@@ -11,6 +11,8 @@ import Foundation
 typealias CompletionHandler = ((_ data: Data?, _ error: String?) -> Void)
 
 class ApiService:ApiServiceProtocol {
+
+    
     
     var dictionaryCompletionHandler: [String: CompletionHandler] = [:]
     
@@ -70,18 +72,18 @@ class ApiService:ApiServiceProtocol {
             self.handleResponse(data: data, urlResponse: response, error: error)
             //print(data!)
         }
-        task.resume() 
-        
+        task.resume()
     }
-    func downloadingData (urlString: String, completeHandler: @escaping CompletionHandler){
+    
+    static func downloadingData (urlString: String, completeHandler: @escaping CompletionHandler){
         guard let url = URL(string: urlString) else {
             completeHandler(nil,"Url not found")
             return
         }
         let urlSession = URLSession(configuration: .default)
-        var getRequest = URLRequest(url: url)
+        let getRequest = URLRequest(url: url)
         let task = urlSession.dataTask(with: getRequest) { (data, response, error) in
-            DispatchQueue.global(qos: .userInteractive).async {
+            DispatchQueue.global(qos: .background).async {
                 completeHandler(data, error?.localizedDescription)
             }
         }

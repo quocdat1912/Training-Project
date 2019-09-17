@@ -60,11 +60,15 @@ class MainViewController: UIViewController, MainViewProtocol, UICollectionViewDa
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GridCell", for: indexPath) as! GridCollectionViewCell
-        do{
-        cell.imageProduct.image = UIImage(data: try Data(contentsOf: URL(string: items[indexPath.row].imageUrl) ?? URL(string: "https://res.cloudinary.com/teepublic/image/private/s--zHtQBp1P--/t_Preview/b_rgb:ffffff,c_lpad,f_jpg,h_630,q_90,w_1200/v1537945289/production/designs/3214340_0.jpg")!))
-        }catch{
-            print(error.localizedDescription)
+        let cellTag = indexPath.row
+        cell.imageProduct.image = UIImage(named: "icon_placeholder_m")
+        let stringEncode = items[indexPath.row].imageUrl.base64Encoded()!
+        DataManager.getImageInDirectory(pathDirectory: "images", nameFile: stringEncode) { (image) in
+            if cellTag == indexPath.row {
+                cell.imageProduct.image = image
+            }
         }
+        
         cell.nameProduct.text = items[indexPath.row].name
         return cell
     }

@@ -23,6 +23,7 @@ class Session : SessionProtocol {
             let string = String(data: data!, encoding: .utf8)
             let x = string?.components(separatedBy: "\"")
             let trueString = x![1]
+            //check JWT
             let stringComponent:[String] = (string?.components(separatedBy: "."))!
             guard stringComponent.count == 3  else {
                 self.loginInteractor?.loginFail(errorString: "Not found account or password")

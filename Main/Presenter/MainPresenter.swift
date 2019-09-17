@@ -7,9 +7,10 @@
 //
 
 import Foundation
+import UIKit
 
 class MainPresenter: MainPresenterProtocol {
-    
+
     weak var view: MainViewProtocol?
     var interactor: MainInteractorProtocol?
     var products : [ProductModel] = []
@@ -57,14 +58,25 @@ class MainPresenter: MainPresenterProtocol {
         print("Number of categories: \(self.categories.count)")
         view?.displayCategory(categories: self.categories)
     }
-    let  imageCache = NSCache<NSString, UIImage>()
-    func downLoadImage(url: URL, completion: @escaping (UIImage?, Error?)-> Void){
-        if let cachedImage = imageCache.object(forKey: url.absoluteString as NSString){
-            completion(cachedImage, nil)
-        }else{
+    
+    
+    static func saveImage(urlString: String, completion: @escaping (UIImage?) -> Void){
+        let string64 = urlString.base64Encoded()!
+        ApiService.downloadingData(urlString: urlString) { (data, error) in
+            guard  error == nil else {
+                print("Couldn't find image")
+                return
+            }
+            if DataManager.createDirectory(pathString: "images"){
+                DataManager.saveImageToDirectory(pathDirectory: "images", nameFile: string64, image: UIImage(data: data!)!)
+            }else{
+                DataManager.saveImageToDirectory(pathDirectory: "images", nameFile: string64, image: UIImage(data: data!)!)
+            }
+            completion(UIImage(data: data!))
         }
         
     }
+    
     
     
 }

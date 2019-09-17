@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+import UIKit
 protocol MainViewProtocol: class {
     var presenter : MainPresenterProtocol? {get set}
     //Presenter -> View
@@ -22,13 +22,12 @@ protocol MainPresenterProtocol: class {
     //View -> Presenter
     func displayDefault()
     func displayProductByCatelogy()
+    static func saveImage(urlString: String, completion: @escaping (UIImage?) -> Void)
     //Interactor -> Presenter
     func didGetProducts(products:[Product])
-    func didGetCategories(categories:[Category]) 
-    //func didGetProductByCatelogy()
+    func didGetCategories(categories:[Category])
 }
-
-protocol MainInteractorProtocol : class {
+    protocol MainInteractorProtocol : class {
     var presenter : MainPresenterProtocol? {get set}
     var Api : ApiServiceProtocol? {get set}
     var datamanager : DataManagerProtocol? {get set}

@@ -7,10 +7,11 @@
 //
 
 import Foundation
+import UIKit
 import CoreData
 
 class DataManager: DataManagerProtocol {
-
+    
     func saveProduct(products: [ProductModel], handler: ([NSManagedObject]?) -> Void) throws {
         let managedContext = AppDelegate.shared.persistentContainer.viewContext
         guard let entity = NSEntityDescription.entity(forEntityName: "Product", in: managedContext) else {
@@ -29,7 +30,7 @@ class DataManager: DataManagerProtocol {
             
             try managedContext.save()
         }
-       
+        
     }
     
     func saveCategory(categories: [CategoryModel], handler: ([NSManagedObject]?) -> Void) throws {
@@ -54,14 +55,14 @@ class DataManager: DataManagerProtocol {
         guard let entity = NSEntityDescription.entity(forEntityName: "Page", in: managedContext) else {
             throw PersistenceError.couldNotSaveObject
         }
-            let page = Page(entity: entity, insertInto: managedContext)
-            page.type = type
-            page.max_page = Int16(maxPage)
-            page.current_page = Int16(currentPage)
-            
-            try managedContext.save()
-        }
-
+        let page = Page(entity: entity, insertInto: managedContext)
+        page.type = type
+        page.max_page = Int16(maxPage)
+        page.current_page = Int16(currentPage)
+        
+        try managedContext.save()
+    }
+    
     
     func fetchProduct(handler: ([NSManagedObject]?) -> Void) throws {
         let managedContext = AppDelegate.shared.persistentContainer.viewContext
@@ -121,3 +122,75 @@ class DataManager: DataManagerProtocol {
         }
     }
 }
+
+
+extension DataManager {
+    static func createDirectory(pathString: String) -> Bool {
+        let fileManager = FileManager.default
+        let path = (NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString).appendingPathComponent(pathString)
+        if !fileManager.fileExists(atPath: path){
+            do{
+                try fileManager.createDirectory(atPath: path, withIntermediateDirectories: true, attributes: nil)
+                return true
+            }catch{
+                print("Couldn't create document directory")
+            }
+        }else{
+            print("Already had existing directory")
+        }
+        return false
+    }
+    
+    static func saveImageToDirectory(pathDirectory: String, nameFile: String, image: UIImage) {
+        let fileManager = FileManager.default
+        let path = (NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString).appendingPathComponent("\(pathDirectory)/"+nameFile)
+        let imageData = image.jpegData(compressionQuality: 0.75)
+        if !fileManager.fileExists(atPath: path){
+            if fileManager.createFile(atPath: path, contents: imageData, attributes: nil) ==  true {
+                print("Save image successful")
+            }else{
+                print("Could not save image")
+            }
+        }else{
+            print("Already had image file")
+        }
+    }
+    
+    static func deleteImageInDirectory (pathDirectory: String, nameFile: String){
+        let fileManager = FileManager.default
+        let path = (NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString).appendingPathComponent("\(pathDirectory)/"+nameFile)
+        if !fileManager.fileExists(atPath: path){
+            print("There is not a file to delete")
+        }else{
+            do{
+                try fileManager.removeItem(atPath: path)
+            }catch{
+                print("Directory not found to remove")
+            }
+        }
+    }
+    static func getImageInDirectory (pathDirectory: String, nameFile: String, complete: @escaping (UIImage) -> Void){
+        DispatchQueue.global(qos: .background).async {
+            let urlString = nameFile.base64Decoded()!
+            let fileManger = FileManager.default
+            var image: UIImage = UIImage(named: "icon_placeholder_m")!
+            let path = (NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString).appendingPathComponent("\(pathDirectory)/"+nameFile.replacingOccurrences(of: "/", with: "")+".jpg")
+            if !fileManger.fileExists(atPath: path){
+                print("There is not a file to read")
+                MainPresenter.saveImage(urlString: urlString) { (uiimage) in
+                    image = uiimage!
+                    DispatchQueue.main.async {
+                        complete(image)
+                    }
+                }
+            }else{
+                DispatchQueue.main.async {
+                    image = UIImage(contentsOfFile: path)!
+                    complete(image)
+                }
+            }
+            
+        }
+    }
+}
+
