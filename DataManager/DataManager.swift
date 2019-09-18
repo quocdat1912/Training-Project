@@ -143,7 +143,7 @@ extension DataManager {
     
     static func saveImageToDirectory(pathDirectory: String, nameFile: String, image: UIImage) {
         let fileManager = FileManager.default
-        let path = (NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString).appendingPathComponent("\(pathDirectory)/"+nameFile)
+        let path = (NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString).appendingPathComponent("\(pathDirectory)/"+nameFile.replacingOccurrences(of: "/=", with: "")+".jpg")
         let imageData = image.jpegData(compressionQuality: 0.75)
         if !fileManager.fileExists(atPath: path){
             if fileManager.createFile(atPath: path, contents: imageData, attributes: nil) ==  true {
@@ -169,7 +169,7 @@ extension DataManager {
             }
         }
     }
-    static func getImageInDirectory (pathDirectory: String, nameFile: String, complete: @escaping (UIImage) -> Void){
+    static func getImageInDirectory (pathDirectory: String, nameFile: String, complete: @escaping (UIImage, String) -> Void){
         DispatchQueue.global(qos: .background).async {
             let urlString = nameFile.base64Decoded()!
             let fileManger = FileManager.default
@@ -177,16 +177,18 @@ extension DataManager {
             let path = (NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString).appendingPathComponent("\(pathDirectory)/"+nameFile.replacingOccurrences(of: "/", with: "")+".jpg")
             if !fileManger.fileExists(atPath: path){
                 print("There is not a file to read")
-                MainPresenter.saveImage(urlString: urlString) { (uiimage) in
-                    image = uiimage!
-                    DispatchQueue.main.async {
-                        complete(image)
+                ApiService.downloadingData(urlString: urlString, completeHandler: { (data, error) in
+                    guard error == nil else {
+                        return
                     }
-                }
+                    image = UIImage(data: data!)!
+                    self.saveImageToDirectory(pathDirectory: pathDirectory, nameFile: nameFile, image: image )
+                    complete(image, nameFile)
+                })
             }else{
                 DispatchQueue.main.async {
                     image = UIImage(contentsOfFile: path)!
-                    complete(image)
+                    complete(image,nameFile)
                 }
             }
             

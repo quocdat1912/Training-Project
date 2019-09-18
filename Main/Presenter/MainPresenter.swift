@@ -60,22 +60,22 @@ class MainPresenter: MainPresenterProtocol {
     }
     
     
-    static func saveImage(urlString: String, completion: @escaping (UIImage?) -> Void){
-        let string64 = urlString.base64Encoded()!
-        ApiService.downloadingData(urlString: urlString) { (data, error) in
-            guard  error == nil else {
-                print("Couldn't find image")
-                return
-            }
-            if DataManager.createDirectory(pathString: "images"){
-                DataManager.saveImageToDirectory(pathDirectory: "images", nameFile: string64, image: UIImage(data: data!)!)
-            }else{
-                DataManager.saveImageToDirectory(pathDirectory: "images", nameFile: string64, image: UIImage(data: data!)!)
-            }
-            completion(UIImage(data: data!))
-        }
-        
-    }
+//    static func saveImage(urlString: String, completion: @escaping (UIImage?) -> Void){
+//        let string64 = urlString.base64Encoded()!
+//        ApiService.downloadingData(urlString: urlString) { (data, error) in
+//            guard  error == nil else {
+//                print("Couldn't find image")
+//                return
+//            }
+//            if DataManager.createDirectory(pathString: "images"){
+//                DataManager.saveImageToDirectory(pathDirectory: "images", nameFile: string64, image: UIImage(data: data!)!)
+//            }else{
+//                DataManager.saveImageToDirectory(pathDirectory: "images", nameFile: string64, image: UIImage(data: data!)!)
+//            }
+//            completion(UIImage(data: data!))
+//        }
+//        
+//    }
     
     
     

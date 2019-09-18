@@ -14,27 +14,28 @@ class GridCollectionViewCell: UICollectionViewCell {
     
     var item: ProductModel?
     
-    func fill(item: ProductModel) {
+    func fill(item: ProductModel, indexpath : Int) {
         self.item = item
         
-        cell.imageProduct.image = UIImage(named: "icon_placeholder_m")
-        let stringEncode = items[indexPath.row].imageUrl.base64Encoded()!
-        DataManager.getImageInDirectory(pathDirectory: "images", nameFile: stringEncode) { (image) in
-            if cellTag == indexPath.row {
-                cell.imageProduct.image = image
-            }
+        imageProduct.image = UIImage(named: "icon_placeholder_m")
+        let stringEncode = item.imageUrl.base64Encoded()!
+        DataManager.getImageInDirectory(pathDirectory: "images", nameFile: stringEncode) { (image, name) in
+            self.handleFinishLoadImage(name: name, image: image)
         }
-        
-        cell.nameProduct.text = items[indexPath.row].name
-        
-        
+        //imageProduct.backgroundColor = UIColor
+        nameProduct.text = item.name
+        nameProduct.backgroundColor = UIColor.white
+        //imageProduct.clipsToBounds = true
     }
     
     func handleFinishLoadImage(name: String, image: UIImage) {
-        guard self.item?.imageUrl.base64Encoded() == name else {
-            return
+        DispatchQueue.main.async {
+            guard self.item?.imageUrl.base64Encoded() == name else {
+                return
+            }
+            self.imageProduct.image = image
+            //image.size = imageProduct.siz
         }
-        imageProduct.image = image
     }
     
 }

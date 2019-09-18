@@ -8,22 +8,42 @@
 
 import UIKit
 
-class MainViewController: UIViewController, MainViewProtocol, UICollectionViewDataSource {
+class MainViewController: UIViewController, MainViewProtocol, UICollectionViewDataSource, UICollectionViewDelegate {
 
     var presenter: MainPresenterProtocol?
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var contentView: UIView!
+    @IBOutlet weak var backButton: UIButton!
+    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var contrainWidth: NSLayoutConstraint!
+    @IBOutlet weak var gridViewButton: UIButton!
+    @IBOutlet weak var listViewButton: UIButton!
+
+    var cellString = "GridCell"
     override func viewDidLoad() {
         super.viewDidLoad()
         MainRouter.createMainModule(view: self)
         presenter?.displayDefault()
         // Do any additional setup after loading the view.
+       
+        collectionView.delegate = self
+    }
+    override func viewWillAppear(_ animated: Bool) {
         setUI()
     }
-    @IBOutlet weak var backButton: UIButton!
-    @IBOutlet weak var collectionView: UICollectionView!
+    @IBAction func gridViewOnTap(_ sender: Any) {
+        cellString = "GridCell"
+        gridViewButton.setImage(UIImage(named: "icon-grid-active"), for: .normal)
+        listViewButton.setImage(UIImage(named: "icon-list-normal"), for: .normal)
+        collectionView.reloadData()
+    }
+    @IBAction func listViewOnTap(_ sender: Any) {
+        cellString = "ListCell"
+        gridViewButton.setImage(UIImage(named: "icon-grid-normal"), for: .normal)
+        listViewButton.setImage(UIImage(named: "icon-list-active"), for: .normal)
+        collectionView.reloadData()
+    }
     
-    @IBOutlet weak var contrainWidth: NSLayoutConstraint!
     func showError() {
         
     }
@@ -53,24 +73,73 @@ class MainViewController: UIViewController, MainViewProtocol, UICollectionViewDa
     }
     func setUI() {
         backButton.layer.cornerRadius = 0.5 * backButton.bounds.size.width
+        gridViewButton.setImage(UIImage(named: "icon-grid-active"), for: .normal)
+        listViewButton.setImage(UIImage(named: "icon-list-normal"), for: .normal)
+        //collectionView.backgroundColor = UIColor(red:0.76, green:0.95, blue:0.95, alpha:1.0)
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 100
+        return items.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GridCell", for: indexPath) as! GridCollectionViewCell
-        let cellTag = indexPath.row
-        cell.imageProduct.image = UIImage(named: "icon_placeholder_m")
-        let stringEncode = items[indexPath.row].imageUrl.base64Encoded()!
-        DataManager.getImageInDirectory(pathDirectory: "images", nameFile: stringEncode) { (image) in
-            if cellTag == indexPath.row {
-                cell.imageProduct.image = image
-            }
+        let cell : UICollectionViewCell!
+        
+        
+        switch cellString {
+        case "ListCell":
+            cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellString, for: indexPath) as! ListCollectionViewCell
+        default:
+            cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellString, for: indexPath) as! GridCollectionViewCell
+            cell.layer.cornerRadius = 10
+            cell.clipsToBounds = true
+                    }
+        if(indexPath.row % 2 == 0) {
+            cell.backgroundColor = UIColor(red:0.89, green:0.89, blue:0.89, alpha:1.0)
+            
+        }
+        else{
+            cell.backgroundColor = UIColor.white
+        }
+        return cell
+    }
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        
+        switch cellString {
+        case "ListCell":
+            let listCell = cell as! ListCollectionViewCell
+            listCell.fill(item: items[indexPath.row], indexpath: indexPath.row)
+            
+        default:
+            let gridCell = cell as! GridCollectionViewCell
+            gridCell.fill(item: items[indexPath.row], indexpath: indexPath.row)
+        }
+   
+    }
+}
+extension MainViewController : UICollectionViewDelegateFlowLayout{
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        if cellString == "ListCell"{
+            let width = UIScreen.main.bounds.width
+            return CGSize(width: width, height: 56)
+        }
+        else{
+            return CGSize(width: 129, height: 112)
         }
         
-        cell.nameProduct.text = items[indexPath.row].name
-        return cell
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        if(cellString == "ListCell"){
+        return 0
+        }else{
+            return 10
+        }
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        if(cellString == "ListCell"){
+            return 0
+        }else{
+            return 10
+        }
     }
     
 }
