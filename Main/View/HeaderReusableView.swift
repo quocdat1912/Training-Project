@@ -17,8 +17,8 @@ class HeaderReusableView: UICollectionReusableView {
     
     func setUp() {
         productText.text = "PRODUCT"
-        skuText.text = "SKU"
-        qtyText.text = "QUANTITY"
+        skuText.text = "ID"
+        qtyText.text = "QTY"
         priceText.text = "PRICE"
     }
     

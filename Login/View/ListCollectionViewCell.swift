@@ -23,19 +23,22 @@ class ListCollectionViewCell: UICollectionViewCell {
     func fill(item: ProductModel, indexpath : Int) {
         self.item = item
         imageProduct.image = UIImage(named: "icon_placeholder_m")
+        imageProduct.backgroundColor = UIColor(red:0.71, green:0.71, blue:0.71, alpha:1.0)
         let stringEncode = item.imageUrl.base64Encoded()!
         DataManager.getImageInDirectory(pathDirectory: "images", nameFile: stringEncode) { (image, name) in
             self.handleFinishLoadImage(name: name, image: image)
         }
         nameProduct.text = item.name
-        skuProduct.text = item.sku
+        skuProduct.text = item.id
         //skuProduct.layer.borderWidth = 0.4
         //qtyProduct.layer.borderWidth = 0.4
         qtyProduct.text = String(item.quantity)
-        priceProduct.text = item.price
+        let priceString = "$"+item.price!
+        priceProduct.text = priceString
+        priceProduct.textColor = UIColor(red:0.09, green:0.57, blue:0.53, alpha:1.0)
         if(indexpath % 2 == 0) {
-            viewCell1.backgroundColor = UIColor(red:0.89, green:0.89, blue:0.89, alpha:1.0)
-            viewCell2.backgroundColor = UIColor(red:0.89, green:0.89, blue:0.89, alpha:1.0)
+            viewCell1.backgroundColor = UIColor(red:0.96, green:0.96, blue:0.96, alpha:1.0)
+            viewCell2.backgroundColor = UIColor(red:0.96, green:0.96, blue:0.96, alpha:1.0)
 //            qtyProduct.backgroundColor = UIColor(red:0.89, green:0.89, blue:0.89, alpha:1.0)
 //            priceProduct.backgroundColor = UIColor(red:0.89, green:0.89, blue:0.89, alpha:1.0)
         }

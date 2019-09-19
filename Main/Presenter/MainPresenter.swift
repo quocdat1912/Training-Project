@@ -70,6 +70,11 @@ class MainPresenter: MainPresenterProtocol {
     func getProducts() -> [ProductModel] {
         return self.products
     }
+    func getCategories() -> [CategoryModel] {
+        return self.categories
+    }
+    
+    
     
     
 //    static func saveImage(urlString: String, completion: @escaping (UIImage?) -> Void){

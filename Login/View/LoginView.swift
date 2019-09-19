@@ -19,7 +19,7 @@ class LoginView: UIViewController {
         super.viewDidLoad()
         LoginRouter.createLoginModule(view: self)
         setUI()
-        UserDefaults.standard.removeObject(forKey: "token")
+        //UserDefaults.standard.removeObject(forKey: "token")
         
     }
     override func viewWillAppear(_ animated: Bool) {

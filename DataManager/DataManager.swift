@@ -143,7 +143,7 @@ extension DataManager {
     
     static func saveImageToDirectory(pathDirectory: String, nameFile: String, image: UIImage) {
         let fileManager = FileManager.default
-        let path = (NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString).appendingPathComponent("\(pathDirectory)/"+nameFile.replacingOccurrences(of: "/=", with: "")+".jpg")
+        let path = (NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString).appendingPathComponent("\(pathDirectory)/"+nameFile.replacingOccurrences(of: "/", with: "").replacingOccurrences(of: "=", with: "")+".jpg")
         let imageData = image.jpegData(compressionQuality: 0.75)
         if !fileManager.fileExists(atPath: path){
             if fileManager.createFile(atPath: path, contents: imageData, attributes: nil) ==  true {
@@ -158,7 +158,7 @@ extension DataManager {
     
     static func deleteImageInDirectory (pathDirectory: String, nameFile: String){
         let fileManager = FileManager.default
-        let path = (NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString).appendingPathComponent("\(pathDirectory)/"+nameFile)
+        let path = (NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString).appendingPathComponent("\(pathDirectory)/"+nameFile.replacingOccurrences(of: "/", with: "").replacingOccurrences(of: "=", with: "")+".jpg")
         if !fileManager.fileExists(atPath: path){
             print("There is not a file to delete")
         }else{
@@ -174,7 +174,7 @@ extension DataManager {
             let urlString = nameFile.base64Decoded()!
             let fileManger = FileManager.default
             var image: UIImage = UIImage(named: "icon_placeholder_m")!
-            let path = (NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString).appendingPathComponent("\(pathDirectory)/"+nameFile.replacingOccurrences(of: "/", with: "")+".jpg")
+            let path = (NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString).appendingPathComponent("\(pathDirectory)/"+nameFile.replacingOccurrences(of: "/", with: "").replacingOccurrences(of: "=", with: "")+".jpg")
             if !fileManger.fileExists(atPath: path){
                 print("There is not a file to read")
                 ApiService.downloadingData(urlString: urlString, completeHandler: { (data, error) in

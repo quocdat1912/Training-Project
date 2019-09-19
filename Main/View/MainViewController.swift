@@ -18,7 +18,8 @@ class MainViewController: UIViewController, MainViewProtocol, UICollectionViewDa
     @IBOutlet weak var contrainWidth: NSLayoutConstraint!
     @IBOutlet weak var gridViewButton: UIButton!
     @IBOutlet weak var listViewButton: UIButton!
-
+    @IBOutlet weak var directionLabel: UILabel!
+    
     var cellString = "GridCell"
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +28,10 @@ class MainViewController: UIViewController, MainViewProtocol, UICollectionViewDa
         // Do any additional setup after loading the view.
        
         collectionView.delegate = self
+    }
+    override func viewDidLayoutSubviews() {
+        //super.viewDidLayoutSubviews()
+        collectionView.collectionViewLayout.invalidateLayout()
     }
     override func viewWillAppear(_ animated: Bool) {
         setUI()
@@ -46,6 +51,11 @@ class MainViewController: UIViewController, MainViewProtocol, UICollectionViewDa
     }
     @IBAction func backButton(_ sender: Any) {
         presenter?.view?.displayProduct(products: (presenter?.getProducts())!)
+        let quantity = presenter?.getProducts().count
+        let string = "All fashion " + "(" + String(quantity!) + ")"
+        let atributedString = NSMutableAttributedString(string: string)
+        atributedString.setColorForText(textForAttribute: "All fashion", withColor: UIColor(red:0.09, green:0.57, blue:0.53, alpha:1.0))
+        directionLabel.attributedText = atributedString
     }
     
     func showError() {
@@ -65,6 +75,7 @@ class MainViewController: UIViewController, MainViewProtocol, UICollectionViewDa
             button.setTitleColor(UIColor.black, for: .normal)
             button.setTitle(categories[index].name, for: .normal)
             button.titleLabel?.textAlignment = NSTextAlignment.center
+            //button.layer.borderWidth = 2
             button.tag = index
             button.addTarget(self, action: #selector(didCategoriesSelected), for: .touchUpInside)
             contentView.addSubview(button)
@@ -76,6 +87,12 @@ class MainViewController: UIViewController, MainViewProtocol, UICollectionViewDa
     @objc func didCategoriesSelected (sender : UIButton){
         let tag = sender.tag
         presenter?.displayProductByCatelogy(senderTag: tag)
+        let name = presenter?.getCategories()[tag].name!
+        let quantity = items.count
+        let string = NSMutableAttributedString(string:"All fashion / \(String(describing: name!)) (\(String(describing: quantity)))" )
+        string.setColorForText(textForAttribute: name!, withColor: UIColor(red:0.09, green:0.57, blue:0.53, alpha:1.0))
+        directionLabel.attributedText = string
+        
     }
     
     
@@ -90,7 +107,12 @@ class MainViewController: UIViewController, MainViewProtocol, UICollectionViewDa
         backButton.layer.cornerRadius = 0.5 * backButton.bounds.size.width
         gridViewButton.setImage(UIImage(named: "icon-grid-active"), for: .normal)
         listViewButton.setImage(UIImage(named: "icon-list-normal"), for: .normal)
-        //collectionView.backgroundColor = UIColor(red:0.76, green:0.95, blue:0.95, alpha:1.0)
+        let quantity = presenter?.getProducts().count
+        let string = "All fashion " + "(" + String(quantity!) + ")"
+        let atributedString = NSMutableAttributedString(string: string)
+        atributedString.setColorForText(textForAttribute: "All fashion", withColor: UIColor(red:0.09, green:0.57, blue:0.53, alpha:1.0))
+        directionLabel.attributedText = atributedString
+        
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return items.count
@@ -109,7 +131,7 @@ class MainViewController: UIViewController, MainViewProtocol, UICollectionViewDa
             cell.clipsToBounds = true
                     }
         if(indexPath.row % 2 == 0) {
-            cell.backgroundColor = UIColor(red:0.89, green:0.89, blue:0.89, alpha:1.0)
+            cell.backgroundColor = UIColor(red:0.96, green:0.96, blue:0.96, alpha:1.0)
             
         }
         else{
@@ -134,8 +156,8 @@ class MainViewController: UIViewController, MainViewProtocol, UICollectionViewDa
 extension MainViewController : UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if cellString == "ListCell"{
-            let width = UIScreen.main.bounds.width
-            return CGSize(width: width, height: 56)
+            //let width = UIScreen.main.bounds.width
+            return CGSize(width: collectionView.frame.width, height: 60)
         }
         else{
             return CGSize(width: 129, height: 112)
