@@ -21,7 +21,8 @@ protocol MainPresenterProtocol: class {
     var interactor : MainInteractorProtocol? {get set}
     //View -> Presenter
     func displayDefault()
-    func displayProductByCatelogy()
+    func displayProductByCatelogy(senderTag: Int)
+    func getProducts() -> [ProductModel] 
     //static func saveImage(urlString: String, completion: @escaping (UIImage?) -> Void)
     //Interactor -> Presenter
     func didGetProducts(products:[Product])

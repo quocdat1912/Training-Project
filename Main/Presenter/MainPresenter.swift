@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 class MainPresenter: MainPresenterProtocol {
-
+ 
     weak var view: MainViewProtocol?
     var interactor: MainInteractorProtocol?
     var products : [ProductModel] = []
@@ -22,8 +22,17 @@ class MainPresenter: MainPresenterProtocol {
 //        interactor?.deleteDataBase()
     }
     
-    func displayProductByCatelogy() {
-        
+    func displayProductByCatelogy(senderTag: Int) {
+        let string = categories[senderTag].productIds
+        var productArray : [ProductModel] = []
+        for id in string!{
+            for product in products{
+                if(product.id == id){
+                    productArray.append(product)
+                }
+            }
+        }
+        view?.displayProduct(products: productArray)
     }
     
     func didGetProducts(products: [Product]) {
@@ -57,6 +66,9 @@ class MainPresenter: MainPresenterProtocol {
         }
         print("Number of categories: \(self.categories.count)")
         view?.displayCategory(categories: self.categories)
+    }
+    func getProducts() -> [ProductModel] {
+        return self.products
     }
     
     

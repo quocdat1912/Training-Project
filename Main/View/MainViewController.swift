@@ -41,7 +41,11 @@ class MainViewController: UIViewController, MainViewProtocol, UICollectionViewDa
         cellString = "ListCell"
         gridViewButton.setImage(UIImage(named: "icon-grid-normal"), for: .normal)
         listViewButton.setImage(UIImage(named: "icon-list-active"), for: .normal)
+
         collectionView.reloadData()
+    }
+    @IBAction func backButton(_ sender: Any) {
+        presenter?.view?.displayProduct(products: (presenter?.getProducts())!)
     }
     
     func showError() {
@@ -61,15 +65,26 @@ class MainViewController: UIViewController, MainViewProtocol, UICollectionViewDa
             button.setTitleColor(UIColor.black, for: .normal)
             button.setTitle(categories[index].name, for: .normal)
             button.titleLabel?.textAlignment = NSTextAlignment.center
+            button.tag = index
+            button.addTarget(self, action: #selector(didCategoriesSelected), for: .touchUpInside)
             contentView.addSubview(button)
             contrainWidth.constant = button.frame.maxX - UIScreen.main.bounds.width + 10
+
         }
         
     }
+    @objc func didCategoriesSelected (sender : UIButton){
+        let tag = sender.tag
+        presenter?.displayProductByCatelogy(senderTag: tag)
+    }
+    
+    
     var items : [ProductModel] = []
+    
     func displayProduct(products: [ProductModel]) {
         items = products
         collectionView.dataSource = self
+        collectionView.reloadData()
     }
     func setUI() {
         backButton.layer.cornerRadius = 0.5 * backButton.bounds.size.width
@@ -141,5 +156,18 @@ extension MainViewController : UICollectionViewDelegateFlowLayout{
             return 10
         }
     }
-    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        
+            let sectionHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "SectionHeader", for: indexPath) as? HeaderReusableView
+            sectionHeader?.setUp()
+            return sectionHeader!
+        
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        if(cellString != "ListCell"){
+            return CGSize(width: 0, height: 0)
+        }else{
+            return CGSize(width: UIScreen.main.bounds.width, height: 40)
+        }
+    }
 }
