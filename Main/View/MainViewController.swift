@@ -24,17 +24,22 @@ class MainViewController: UIViewController, MainViewProtocol, UICollectionViewDa
     override func viewDidLoad() {
         super.viewDidLoad()
         MainRouter.createMainModule(view: self)
-        presenter?.displayDefault()
+        
         // Do any additional setup after loading the view.
        
         collectionView.delegate = self
     }
     override func viewDidLayoutSubviews() {
+        
         //super.viewDidLayoutSubviews()
         collectionView.collectionViewLayout.invalidateLayout()
     }
     override func viewWillAppear(_ animated: Bool) {
+        
         setUI()
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        presenter?.displayDefault()
     }
     @IBAction func gridViewOnTap(_ sender: Any) {
         cellString = "GridCell"
@@ -63,19 +68,29 @@ class MainViewController: UIViewController, MainViewProtocol, UICollectionViewDa
     }
     
     func displayCategory(categories: [CategoryModel]) {
+//        for index in 0..<categories.count{
+//            let button = UIButton(frame: CGRect(x:60 + (index * 110) , y:8 , width: 100, height: 50))
+//            button.layer.cornerRadius = 20
+//            do{
+//                button.setImage(UIImage(data: try Data(contentsOf: URL(string: categories[index].imageUrl) ?? URL(string: "https://res.cloudinary.com/teepublic/image/private/s--zHtQBp1P--/t_Preview/b_rgb:ffffff,c_lpad,f_jpg,h_630,q_90,w_1200/v1537945289/production/designs/3214340_0.jpg")!)) ?? UIImage(named: "icon-back") , for: .normal)
+//                //button.imageView?.backgroundColor = UIColor(red:0.75, green:0.24, blue:0.24, alpha:1)
+//            }catch{
+//                print(error.localizedDescription)
+//            }
+//            button.clipsToBounds = true
+//            button.setTitleColor(UIColor.white, for: .normal)
+//            button.setTitle(categories[index].name, for: .normal)
+//            button.titleLabel?.textAlignment = NSTextAlignment.center
+//            //button.layer.borderWidth = 2
+//            button.tag = index
+//            button.addTarget(self, action: #selector(didCategoriesSelected), for: .touchUpInside)
+//            contentView.addSubview(button)
+//            contrainWidth.constant = button.frame.maxX - UIScreen.main.bounds.width + 10
+//
+//        }
         for index in 0..<categories.count{
-            let button = UIButton(frame: CGRect(x:60 + (index * 110) , y:8 , width: 100, height: 50))
-            button.layer.cornerRadius = 20
-            do{
-                button.setBackgroundImage(UIImage(data: try Data(contentsOf: URL(string: categories[index].imageUrl) ?? URL(string: "https://res.cloudinary.com/teepublic/image/private/s--zHtQBp1P--/t_Preview/b_rgb:ffffff,c_lpad,f_jpg,h_630,q_90,w_1200/v1537945289/production/designs/3214340_0.jpg")!)) ?? UIImage(named: "icon-back") , for: .normal)
-            }catch{
-                print(error.localizedDescription)
-            }
-            button.clipsToBounds = true
-            button.setTitleColor(UIColor.black, for: .normal)
-            button.setTitle(categories[index].name, for: .normal)
-            button.titleLabel?.textAlignment = NSTextAlignment.center
-            //button.layer.borderWidth = 2
+            let button = CategoryButton(frame: CGRect(x:60 + (index * 110) , y:8 , width: 100, height: 50))
+            button.displayCategory(category: categories[index])
             button.tag = index
             button.addTarget(self, action: #selector(didCategoriesSelected), for: .touchUpInside)
             contentView.addSubview(button)
@@ -160,15 +175,26 @@ extension MainViewController : UICollectionViewDelegateFlowLayout{
             return CGSize(width: collectionView.frame.width, height: 60)
         }
         else{
-            return CGSize(width: 129, height: 112)
+            var width = collectionView.bounds.width
+            let numberItems = 3
+            let totalSpace = 20 + ((numberItems - 1) * 10)
+            width = (width - CGFloat(totalSpace))/3
+            return CGSize(width: 125, height: 85)
         }
         
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        if(cellString == "ListCell"){
+            return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        }else{
+            return UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        }
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         if(cellString == "ListCell"){
         return 0
         }else{
-            return 10
+            return 0
         }
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {

@@ -42,7 +42,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Main/View/MainViewController.swift"
-            timestampString = "590582969.704921"
+            timestampString = "590647735.5186861"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "13"
@@ -298,11 +298,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Main/View/MainViewController.swift"
-            timestampString = "590582969.707142"
+            timestampString = "590647735.519757"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "99"
-            endingLineNumber = "99"
+            startingLineNumber = "114"
+            endingLineNumber = "114"
             landmarkName = "MainViewController"
             landmarkType = "3">
          </BreakpointContent>
@@ -320,6 +320,22 @@
             startingLineNumber = "179"
             endingLineNumber = "179"
             landmarkName = "getImageInDirectory(pathDirectory:nameFile:complete:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Main/View/MainViewController.swift"
+            timestampString = "590647735.520682"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "182"
+            endingLineNumber = "182"
+            landmarkName = "collectionView(_:layout:sizeForItemAt:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
