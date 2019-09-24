@@ -29,7 +29,6 @@
 		276D082C2328901000C5C0E6 /* MainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276D082B2328901000C5C0E6 /* MainPresenter.swift */; };
 		276D082E2328902100C5C0E6 /* MainInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276D082D2328902100C5C0E6 /* MainInteractor.swift */; };
 		276D08302328902E00C5C0E6 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276D082F2328902E00C5C0E6 /* Router.swift */; };
-		276D08322328B04900C5C0E6 /* ArrayStringType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276D08312328B04900C5C0E6 /* ArrayStringType.swift */; };
 		276D08342328DB4300C5C0E6 /* PersistenceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276D08332328DB4300C5C0E6 /* PersistenceError.swift */; };
 		279D7AF32327ACFC007BB429 /* DataManagerProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279D7AF22327ACFC007BB429 /* DataManagerProtocols.swift */; };
 		279D7AF52327AD11007BB429 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279D7AF42327AD11007BB429 /* DataManager.swift */; };
@@ -62,7 +61,7 @@
 
 /* Begin PBXFileReference section */
 		272B59B7232F799600A2C888 /* GridCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GridCollectionViewCell.swift; path = ../../Login/View/GridCollectionViewCell.swift; sourceTree = "<group>"; };
-		272B59B9232F79A600A2C888 /* ListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ListCollectionViewCell.swift; path = ../../Login/View/ListCollectionViewCell.swift; sourceTree = "<group>"; };
+		272B59B9232F79A600A2C888 /* ListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCollectionViewCell.swift; sourceTree = "<group>"; };
 		2731DADC23220649004A144B /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		2731DADE23221084004A144B /* LoginInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInteractor.swift; sourceTree = "<group>"; };
 		2731DAE023221363004A144B /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
@@ -81,7 +80,6 @@
 		276D082B2328901000C5C0E6 /* MainPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPresenter.swift; sourceTree = "<group>"; };
 		276D082D2328902100C5C0E6 /* MainInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainInteractor.swift; sourceTree = "<group>"; };
 		276D082F2328902E00C5C0E6 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
-		276D08312328B04900C5C0E6 /* ArrayStringType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayStringType.swift; sourceTree = "<group>"; };
 		276D08332328DB4300C5C0E6 /* PersistenceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceError.swift; sourceTree = "<group>"; };
 		279D7AF22327ACFC007BB429 /* DataManagerProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManagerProtocols.swift; sourceTree = "<group>"; };
 		279D7AF42327AD11007BB429 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
@@ -257,7 +255,6 @@
 			isa = PBXGroup;
 			children = (
 				274DA4762320A5EF00CFB8D7 /* Model.swift */,
-				276D08312328B04900C5C0E6 /* ArrayStringType.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -305,8 +302,8 @@
 		27E9B652231FAAC0008159D1 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				272B59B7232F799600A2C888 /* GridCollectionViewCell.swift */,
 				272B59B9232F79A600A2C888 /* ListCollectionViewCell.swift */,
+				272B59B7232F799600A2C888 /* GridCollectionViewCell.swift */,
 				274C36172325F1310015DBEE /* MainViewController.swift */,
 				274AA57123331DF300E88EBE /* HeaderReusableView.swift */,
 				2745FE3A23346FAF00D1D01B /* CategoryButton.swift */,
@@ -492,7 +489,6 @@
 				2731DADD23220649004A144B /* Session.swift in Sources */,
 				274DA4802321278B00CFB8D7 /* Data+Extension.swift in Sources */,
 				27A68E8F231E7FAC00BB579E /* AppDelegate.swift in Sources */,
-				276D08322328B04900C5C0E6 /* ArrayStringType.swift in Sources */,
 				2731DAE323223A99004A144B /* LoginRouter.swift in Sources */,
 				279D7AF32327ACFC007BB429 /* DataManagerProtocols.swift in Sources */,
 				274DA47B2321139800CFB8D7 /* APIProtocols.swift in Sources */,

@@ -21,20 +21,16 @@ class Session : SessionProtocol {
                 self.loginInteractor?.loginFail(errorString: error!)
                 return}
             let string = String(data: data!, encoding: .utf8)
-            let x = string?.components(separatedBy: "\"")
-            let trueString = x![1]
             //check JWT
             let stringComponent:[String] = (string?.components(separatedBy: "."))!
             guard stringComponent.count == 3  else {
                 self.loginInteractor?.loginFail(errorString: "Not found account or password")
                 return}
-            
+            let trueString = string?.replacingOccurrences(of: "\"", with: "")
             print(string!)
             self.loginInteractor?.loginSuccess()
-            self.saveUser(data: trueString)
-            
+            self.saveUser(data: trueString!)
         }
-        
     } 
 
     func saveUser(data: String){

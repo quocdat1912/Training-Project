@@ -99,6 +99,7 @@ class MainInteractor : MainInteractorProtocol {
                     print(error.localizedDescription)
                 }
             })
+            
             //get Category and save to database
             Api?.get(urlString: categoryString, token: token, completeHandler: { (data, error) in
                 let categories = self.parseCategoryData(data: data)
@@ -111,6 +112,7 @@ class MainInteractor : MainInteractorProtocol {
                 }
                 self.didSavePage()
             })
+            DataManager.createDirectory(pathString: "images")
         }else{
             didSavePage()
         }
@@ -148,8 +150,7 @@ class MainInteractor : MainInteractorProtocol {
                                 
                             })
                             page.current_page += 1
-                            try self.datamanager?.updatePage(page: page, handLer: { (nsmanagedobject) in
-                            })
+                            try self.datamanager?.updatePage()
                             self.productSaver()
                         }
                         catch {
@@ -193,8 +194,7 @@ class MainInteractor : MainInteractorProtocol {
                                 
                             })
                             page.current_page += 1
-                            try self.datamanager?.updatePage(page: page, handLer: { (nsmanagedobject) in
-                            })
+                            try self.datamanager?.updatePage()
                             self.productSaver()
                         }
                         catch {

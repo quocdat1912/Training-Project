@@ -20,7 +20,6 @@ class CategoryButton: UIButton {
         buttonLabel = UILabel(frame: CGRect(x: 0, y: 0, width: frame.width , height: frame.height))
         buttonLabel.textAlignment = NSTextAlignment.center
         buttonLabel.textColor = UIColor.white
-        
         self.setUp()
     }
     

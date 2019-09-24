@@ -24,14 +24,10 @@ class MainViewController: UIViewController, MainViewProtocol, UICollectionViewDa
     override func viewDidLoad() {
         super.viewDidLoad()
         MainRouter.createMainModule(view: self)
-        
-        // Do any additional setup after loading the view.
-       
+        presenter?.displayDefault()
         collectionView.delegate = self
     }
     override func viewDidLayoutSubviews() {
-        
-        //super.viewDidLayoutSubviews()
         collectionView.collectionViewLayout.invalidateLayout()
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -39,7 +35,7 @@ class MainViewController: UIViewController, MainViewProtocol, UICollectionViewDa
         setUI()
     }
     override func viewDidAppear(_ animated: Bool) {
-        presenter?.displayDefault()
+        
     }
     @IBAction func gridViewOnTap(_ sender: Any) {
         cellString = "GridCell"
@@ -68,26 +64,6 @@ class MainViewController: UIViewController, MainViewProtocol, UICollectionViewDa
     }
     
     func displayCategory(categories: [CategoryModel]) {
-//        for index in 0..<categories.count{
-//            let button = UIButton(frame: CGRect(x:60 + (index * 110) , y:8 , width: 100, height: 50))
-//            button.layer.cornerRadius = 20
-//            do{
-//                button.setImage(UIImage(data: try Data(contentsOf: URL(string: categories[index].imageUrl) ?? URL(string: "https://res.cloudinary.com/teepublic/image/private/s--zHtQBp1P--/t_Preview/b_rgb:ffffff,c_lpad,f_jpg,h_630,q_90,w_1200/v1537945289/production/designs/3214340_0.jpg")!)) ?? UIImage(named: "icon-back") , for: .normal)
-//                //button.imageView?.backgroundColor = UIColor(red:0.75, green:0.24, blue:0.24, alpha:1)
-//            }catch{
-//                print(error.localizedDescription)
-//            }
-//            button.clipsToBounds = true
-//            button.setTitleColor(UIColor.white, for: .normal)
-//            button.setTitle(categories[index].name, for: .normal)
-//            button.titleLabel?.textAlignment = NSTextAlignment.center
-//            //button.layer.borderWidth = 2
-//            button.tag = index
-//            button.addTarget(self, action: #selector(didCategoriesSelected), for: .touchUpInside)
-//            contentView.addSubview(button)
-//            contrainWidth.constant = button.frame.maxX - UIScreen.main.bounds.width + 10
-//
-//        }
         for index in 0..<categories.count{
             let button = CategoryButton(frame: CGRect(x:60 + (index * 110) , y:8 , width: 100, height: 50))
             button.displayCategory(category: categories[index])

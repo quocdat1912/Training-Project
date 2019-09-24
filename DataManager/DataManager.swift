@@ -88,7 +88,7 @@ class DataManager: DataManagerProtocol {
     
     
     
-    func updatePage(page: Page, handLer: ([NSManagedObject]?) -> Void) throws {
+    func updatePage() throws {
         let managedContext = AppDelegate.shared.persistentContainer.viewContext
         if managedContext.hasChanges {
             do {
@@ -125,20 +125,18 @@ class DataManager: DataManagerProtocol {
 
 
 extension DataManager {
-    static func createDirectory(pathString: String) -> Bool {
+    static func createDirectory(pathString: String){
         let fileManager = FileManager.default
         let path = (NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString).appendingPathComponent(pathString)
         if !fileManager.fileExists(atPath: path){
             do{
                 try fileManager.createDirectory(atPath: path, withIntermediateDirectories: true, attributes: nil)
-                return true
             }catch{
                 print("Couldn't create document directory")
             }
         }else{
             print("Already had existing directory")
         }
-        return false
     }
     
     static func saveImageToDirectory(pathDirectory: String, nameFile: String, image: UIImage) {

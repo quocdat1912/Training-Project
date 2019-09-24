@@ -19,7 +19,7 @@ class LoginView: UIViewController {
         super.viewDidLoad()
         LoginRouter.createLoginModule(view: self)
         setUI()
-        //UserDefaults.standard.removeObject(forKey: "token")
+        UserDefaults.standard.removeObject(forKey: "token")
         
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -29,8 +29,9 @@ class LoginView: UIViewController {
         guard let token = UserDefaults.standard.value(forKey: "token") else {
             return
         }
-        //print(token)
-        showSuccess()
+        showLoading()
+        //showSuccess()
+        loginPresenter?.didLoginSuccess()
     }
     
 
@@ -74,6 +75,7 @@ extension LoginView : LoginViewProtocol {
     
     func showSuccess() {
         //showAlert(titleString: "LoginSuccess")
+        
         performSegue(withIdentifier: "mainSegue", sender: nil)
     }
     
@@ -88,7 +90,11 @@ extension LoginView : LoginViewProtocol {
     }
     
     func hideLoading() {
-        dismiss(animated: false, completion: nil)
+        dismiss(animated: false){ () in
+            if let token = UserDefaults.standard.object(forKey: "token"){
+            self.showSuccess()
+            }
+        }
     }
   
 }

@@ -20,7 +20,7 @@ class LoginPresenter: LoginPresengerProtocol {
     
     func didLoginSuccess() {
         loginView?.hideLoading()
-        loginView?.showSuccess()
+        //loginView?.showSuccess()
     }
     func didLoginFail(errorString : String) {
         loginView?.hideLoading()
