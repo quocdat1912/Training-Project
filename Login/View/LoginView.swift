@@ -15,11 +15,13 @@ class LoginView: UIViewController {
     @IBOutlet weak var passWordTextField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
     var loginPresenter: LoginPresengerProtocol?
+    var checkLogin : Bool! 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        LoginRouter.createLoginModule(view: self)
         setUI()
         UserDefaults.standard.removeObject(forKey: "token")
+        createModule()
         
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -39,7 +41,9 @@ class LoginView: UIViewController {
         guard let username = userNameTextField.text, let pass = passWordTextField.text else{return}
         loginPresenter?.loginOnTap(user: username, pass: pass)
     }
-    
+    func createModule(){
+        LoginRouter.createLoginModule(view: self)
+    }
     func setUI ()  {
         userNameTextField.layer.cornerRadius = 3
         passWordTextField.layer.cornerRadius = 3
@@ -65,17 +69,22 @@ class LoginView: UIViewController {
         alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         self.present(alertController, animated: true, completion: nil)
     }
+    
+    func setCheckLogin( value : Bool){
+        checkLogin = value
+    }
 }
 extension LoginView : LoginViewProtocol {
+    
     func showError(erroString: String) {
         showAlert(titleString: erroString)
-        
+        setCheckLogin(value: false)
     }
     
     
     func showSuccess() {
         //showAlert(titleString: "LoginSuccess")
-        
+        setCheckLogin(value: true)
         performSegue(withIdentifier: "mainSegue", sender: nil)
     }
     

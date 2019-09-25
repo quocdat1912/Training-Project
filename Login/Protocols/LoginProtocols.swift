@@ -27,6 +27,7 @@ protocol LoginPresengerProtocol: class {
     //View -> presenter
     func loginOnTap(user: String, pass: String)
     func showMainController()
+    func printSomething()
     
 }
 

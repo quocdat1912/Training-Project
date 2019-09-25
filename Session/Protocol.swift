@@ -12,6 +12,6 @@ protocol SessionProtocol: class {
     var apiService : ApiServiceProtocol? {get set}
     var loginInteractor : LoginInteractorInputProtocol? {get set}
     //LoginInteractor -> Session
-    func checkLogin(user: String?, pass: String?)
-    
+    func checkLogin(user: String?, pass: String?, handleResuilt :@escaping (Bool)->Void)
+    func printSomthing() 
 }

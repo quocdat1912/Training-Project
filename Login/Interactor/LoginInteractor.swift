@@ -20,7 +20,14 @@ class LoginInteractor: LoginInteractorInputProtocol {
         loginPresenter?.didLoginFail(errorString: errorString)
     }
     func loginInput(user: String, pass: String) {
-        session?.checkLogin(user: user, pass: pass)
+        session?.checkLogin(user: user, pass: pass, handleResuilt:{ (x) in
+            if x == true{
+                self.loginSuccess()
+            }
+            else{
+                self.loginFail(errorString: "Not found account or password")
+            }
+        })
     }
     
 }

@@ -33,4 +33,7 @@ class LoginPresenter: LoginPresengerProtocol {
     func showMainController() {
         loginRouter?.presentMainViewController()
     }
+    func printSomething()  {
+        print("Asdfadsfadfasfasdf")
+    }
 }
